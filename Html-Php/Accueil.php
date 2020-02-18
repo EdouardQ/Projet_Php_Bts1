@@ -20,7 +20,7 @@ session_start();
 				<li><a href=".\.......">Vacances</a></li>
 				<li><a href=".\.......">Professionel</a></li>
 				</ul></li>
-			<li><a href=".\.......">Mon compte</a></li>
+			<li><a href=".\Mon_compte.php">Mon compte</a></li>
 		</ul></nav>
 	</header>
 	<main>
