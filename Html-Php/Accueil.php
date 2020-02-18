@@ -10,9 +10,10 @@ session_start();
 </head>
 <body>
 	<header>
-		<a href=".\accueil.php"><img src="..\images\Logo-les-rousses.png" alt="Logo Les Rousses" title="Accueil"></a>
+		<div id="fusion">
+		<a href=".\accueil.php"><img id="img_1" class="superpose" src="..\images\Logo-les-rousses.png" alt="Logo Les Rousses" title="Accueil"></a>
+		<img id="img_2" class="superpose" src="..\images\jura.jpg" alt="Le jura" title="Le jura" id="fusion"></div>
 		<h1>Village Les Rousses</h1>
-
 		<nav><ul>
 			<li><a href=".\Accueil.php">Accueil</a></li>
 			<li>Reservation
@@ -20,10 +21,9 @@ session_start();
 				<li><a href=".\.......">Vacances</a></li>
 				<li><a href=".\.......">Professionel</a></li>
 				</ul></li>
-			<li><a href=".\Mon_compte.php">Mon compte</a></li>
+			<li><a href=".\.......">Mon compte</a></li>
 		</ul></nav>
 	</header>
-	<div id="test"><a href=".\deconnexion.php">Déconnexion</a></div>
 	<main>
 		<h2>Hébergement et restauration</h2>
 		<ul>Hébergements disponibles sur le site :
