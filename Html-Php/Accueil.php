@@ -23,6 +23,7 @@ session_start();
 			<li><a href=".\Mon_compte.php">Mon compte</a></li>
 		</ul></nav>
 	</header>
+	<div id="test"><a href=".\deconnexion.php">Déconnexion</a></div>
 	<main>
 		<h2>Hébergement et restauration</h2>
 		<ul>Hébergements disponibles sur le site :
