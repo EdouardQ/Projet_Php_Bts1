@@ -13,19 +13,25 @@ main{
 #fusion{
 	position: relative;
 }
-img.superpose {
-   position: absolute;
-   top: 25px;
-   left: 30px;
+.superpose {
+   position: top;
+   margin-top: 2px;
+   margin-left: 10%;
+
 }
-#img_1 {
+#logo {
    z-index: 11;
+   position: absolute;
 }
-#img_2 {
+#background_header {
    z-index: 10;
+   width: 80%;
 }
 h1{
 	text-align: center;
+	width: 80%;	
+	margin-left: 10%;
+	margin-right: 10%;
 	color: white;
 	background-color: #DA7B04;
 }
@@ -82,4 +88,10 @@ nav ul li ul li{
 nav ul li ul li a{
 	margin: 0;
 	padding: 0;
+}
+
+#hello{
+	width: 30%;
+	float: right;
+	text-align: left;
 }

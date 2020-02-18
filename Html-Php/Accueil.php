@@ -10,9 +10,14 @@ session_start();
 </head>
 <body>
 	<header>
+		<?php
+		if (isset($_SESSION['id_user'])){
+			echo '<div id=\'hello\'>Bonjour '.$_SESSION['nom'].' '.$_SESSION['prenom'].' | <a href=".\deconnexion.php">déconnexion</a></div>';
+		}
+		?>
 		<div id="fusion">
-		<a href=".\accueil.php"><img id="img_1" class="superpose" src="..\images\Logo-les-rousses.png" alt="Logo Les Rousses" title="Accueil"></a>
-		<img id="img_2" class="superpose" src="..\images\jura.jpg" alt="Le jura" title="Le jura" id="fusion"></div>
+		<a href=".\accueil.php"><img id="logo" class="superpose" src="..\images\Logo-les-rousses.png" alt="Logo Les Rousses" title="Accueil"></a>
+		<img id="background_header" class="superpose" src="..\images\jura.jpg" alt="Le jura" title="Le jura" id="fusion"></div>
 		<h1>Village Les Rousses</h1>
 		<nav><ul>
 			<li><a href=".\Accueil.php">Accueil</a></li>
@@ -21,7 +26,7 @@ session_start();
 				<li><a href=".\.......">Vacances</a></li>
 				<li><a href=".\.......">Professionel</a></li>
 				</ul></li>
-			<li><a href=".\.......">Mon compte</a></li>
+			<li><a href=".\Mon_compte.php">Mon compte</a></li>
 		</ul></nav>
 	</header>
 	<main>
