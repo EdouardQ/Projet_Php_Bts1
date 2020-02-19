@@ -31,7 +31,7 @@ session_start();
 	</header>
 	<main>
 		<h2>Hébergement et restauration</h2>
-		<ul>Hébergements disponibles sur le site :
+		<ul class="pre"><div class="soust">Hébergements disponibles sur le site :</div>
 			<li>40 logements : entrée, douche et wc, 2 chambres à 2 lits avec coin toilette et balcon.</li>
 			<li>15 chambres doubles : entrée, douche et wc, 1 lit double</li>
 			<li>8 chambres de 3 lits séparés par une cloison mobile avec coin toilette, wc, douche.</li>
@@ -45,11 +45,11 @@ session_start();
 		Pour les colloques, les horaires du restaurant peuvent être adaptés, apéritifs d'accueil et pauses
 		peuvent également être organisés.</p>
 		<h2>Le matériel de la station</h2>
-		<ul>Le matériel informatique en libre service et internet:
+		<ul class="pre"><div class="soust">Le matériel informatique en libre service et internet:</div>
 			<li>3 ordinateurs PC (Windows 10, Office), et une imprimante laser</li>
 			<li>7 points d'accès pour réseau sans fil Wi-Fi, pour connexion à Internet</li>
 		</ul>
-		<ul>Les salles de colloques:
+		<ul class="pre"><div class="soust">Les salles de colloques:</div>
 			<li>Une salle de conférence de 196 places avec tablettes écritoires, sonorisée et équipée d'un
 			vidéo-projecteur pour grand écran.</li>
 			<li>Une salle de commission de 45 à 50 places, avec tablettes écritoires et tableau blanc.</li>
@@ -58,7 +58,7 @@ session_start();
 			<li>Un lieu d'accueil spacieux.</li>
 			<li>Un lieu d'exposition spacieux et clair.</li>
 		</ul>
-		<ul>Le matériel audio/vidéo:
+		<ul class="pre"><div class="soust">Le matériel audio/vidéo:</div>
 			<li>3 vidéoprojecteurs compatibles avec ordinateur PC ou Mac. Le centre fournit un ordinateur
 			portable de prêt si nécessaire.</li>
 			<li>Un système de diffusion d'informations est installé sur 3 écrans 42" dans les espaces de

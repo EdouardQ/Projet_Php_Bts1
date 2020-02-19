@@ -6,7 +6,9 @@ main, nav{
 	margin-right: 10%;
 }
 main{
-	background-color: #CAE4F9;
+	padding: 10px 20px 10px 20px;
+	margin-bottom: 25px;
+	background-color: #E4E6FF;
 	border-radius: 10px;
 	position: relative;
 }
@@ -34,6 +36,19 @@ h1{
 	margin-right: 10%;
 	color: white;
 	background-color: #DA7B04;
+}
+h2{
+	text-align: center;
+	color: white;
+	background-color: #FDA12F;
+}
+div.soust{
+	font-size: 115%;
+	font-weight: bold;
+}
+ul.pre li{
+	padding-left: 2%;
+	list-style-type: none;
 }
 nav > ul{
 	padding: 0;
@@ -94,4 +109,8 @@ nav ul li ul li a{
 	width: 30%;
 	float: right;
 	text-align: left;
+}
+p{
+	padding-left: 5%;
+	padding-right: 5%;
 }
