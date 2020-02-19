@@ -21,3 +21,10 @@ ALTER TABLE Reservation_salle ADD CONSTRAINT FK_Reservation_salle_id_user FOREIG
 ALTER TABLE Reservation_salle ADD CONSTRAINT FK_Reservation_salle_id_salle FOREIGN KEY (id_salle) REFERENCES Salle (id_salle);
 ALTER TABLE Logement_attribue ADD CONSTRAINT FK_Logement_attribue_id_sejour FOREIGN KEY (id_sejour) REFERENCES Sejour (id_sejour);
 ALTER TABLE Logement_attribue ADD CONSTRAINT FK_Logement_attribue_id_logement FOREIGN KEY (id_logement) REFERENCES Logement (id_logement); 
+ALTER TABLE Logement ADD type VARCHAR(50);
+ALTER TABLE Logement ADD nombre INTEGER;
+INSERT INTO Logement(capacite_max,type,nombre)VALUES(4,'2 chambres à 2 lits',40);
+INSERT INTO Logement(capacite_max,type,nombre)VALUES(2,'1 chambre à 1 lit double',15);
+INSERT INTO Logement(capacite_max,type,nombre)VALUES(3,'1 chambre à 3 lits',8);
+INSERT INTO Logement(capacite_max,type,nombre)VALUES(4,'1 chambre à 4 lits',12);
+INSERT INTO Logement(capacite_max,type,nombre)VALUES(1,'1 chambre pour personne à mobilité réduite',1);
