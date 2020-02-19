@@ -25,6 +25,13 @@ main{
    z-index: 11;
    position: absolute;
 }
+#conf{
+	width: 30%;
+	padding-left: 32%;
+}
+#valider{
+	margin-left: 40%;
+}
 #background_header {
    z-index: 10;
    width: 80%;
@@ -80,6 +87,7 @@ nav ul li ul {
 	margin: 0;
 }
 nav ul li:hover ul{
+	width: 170px;
 	display: block;
 	position: absolute;
 	list-style: none;
@@ -94,9 +102,7 @@ nav ul li:hover ul{
 nav ul li ul li{
 	margin-top: 1px;
 	margin-left: 0;
-	padding-left: 63px;
-	padding-right: 63px;
-	padding-top: 0;
+	padding: 0;
 	line-height: 18px;
 	background-image: linear-gradient(60deg, #DA7B04, #FDA12F);
 }
@@ -110,7 +116,15 @@ nav ul li ul li a{
 	float: right;
 	text-align: left;
 }
-p{
+p.texte{
 	padding-left: 5%;
 	padding-right: 5%;
+}
+p.form{
+	padding-left: 5%;
+	padding-right: 5%;
+}
+span.form{
+	padding-left: 20px;
+	padding-right: 5px;
 }

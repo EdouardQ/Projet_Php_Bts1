@@ -28,3 +28,7 @@ INSERT INTO Logement(capacite_max,type,nombre)VALUES(2,'1 chambre à 1 lit doubl
 INSERT INTO Logement(capacite_max,type,nombre)VALUES(3,'1 chambre à 3 lits',8);
 INSERT INTO Logement(capacite_max,type,nombre)VALUES(4,'1 chambre à 4 lits',12);
 INSERT INTO Logement(capacite_max,type,nombre)VALUES(1,'1 chambre pour personne à mobilité réduite',1);
+INSERT INTO salle(nom_salle,place_dispo_salle)VALUES('Salle de conférence de 196 places',196);
+INSERT INTO salle(nom_salle,place_dispo_salle)VALUES('Salle de commission de 50 places',50);
+INSERT INTO salle(nom_salle,place_dispo_salle)VALUES('Salle de commission de 25 places',25);
+INSERT INTO salle(nom_salle,place_dispo_salle)VALUES('Salle de commission de 10 places',10);

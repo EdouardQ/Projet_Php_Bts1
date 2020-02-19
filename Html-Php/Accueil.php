@@ -23,8 +23,8 @@ session_start();
 			<li><a href=".\Accueil.php">Accueil</a></li>
 			<li>Reservation
 			<ul>
-				<li><a href=".\.......">Vacances</a></li>
-				<li><a href=".\.......">Professionel</a></li>
+				<li><a href=".\reservation_vac.php">Vacances</a></li>
+				<li><a href=".\reservation_pro.php">Professionelle</a></li>
 				</ul></li>
 			<li><a href=".\Mon_compte.php">Mon compte</a></li>
 		</ul></nav>
@@ -38,7 +38,7 @@ session_start();
 			<li>12 chambres de 4 lits séparés par une cloison mobile avec douche, wc et balcon.</li>
 			<li>1 logement adapté pour les personnes à mobilité réduite.</li>
 		</ul>
-		<p>Le ménage des appartements est à la charge des occupants. Il est possible de prendre à l'arrivée un
+		<p class="texte">Le ménage des appartements est à la charge des occupants. Il est possible de prendre à l'arrivée un
 		forfait "ménage fin de séjour".<br>
 		Le restaurant accueille les vacanciers en pension complète ou demi-pension toute l'année.<br>
 		Possibilité de pique-nique. Repas adaptés pour les bébés.<br>
@@ -72,17 +72,17 @@ session_start();
 			<li>Autres matériels : paper board, panneaux d'exposition</li>
 		</ul>
 		<h2>Les animations</h2>
-		<p>En toute saison, le centre dispose : d'une bibliothèque adultes et enfants, de télévisions, d'un piano,
+		<p class="texte">En toute saison, le centre dispose : d'une bibliothèque adultes et enfants, de télévisions, d'un piano,
 		d'une table de ping-pong, et d'une salle de fitness.</p>
-		<p>Selon les semaines, peuvent être organisés, des soirées dansantes, des spectacles assurés par des
+		<p class="texte">Selon les semaines, peuvent être organisés, des soirées dansantes, des spectacles assurés par des
 		intervenants extérieurs (chansons, danses folkloriques, théâtre, magie, cirque, diaporama,
 		expositions), du cinéma, des concerts ...</p>
-		<p>Pendant les vacances scolaires, des activités manuelles (arts plastiques...) ou des ateliers (danses,
+		<p class="texte">Pendant les vacances scolaires, des activités manuelles (arts plastiques...) ou des ateliers (danses,
 		musique, remise en forme, théâtre...) sont organisés.</p>
-		<p>En été, le centre dispose d'un terrain de sport (basket ball, volley, handball...) et d'un parc de VTT
+		<p class="texte">En été, le centre dispose d'un terrain de sport (basket ball, volley, handball...) et d'un parc de VTT
 		que peuvent louer les participants.</p>
-		<p>En hiver, location de matériel (ski, raquette, chaussures de randonnée) avec un partenaire.</p>
-		<p>Pour les participants aux colloques, le centre peut proposer des randonnées encadrées par des
+		<p class="texte">En hiver, location de matériel (ski, raquette, chaussures de randonnée) avec un partenaire.</p>
+		<p class="texte">Pour les participants aux colloques, le centre peut proposer des randonnées encadrées par des
 		professionnels.</p>
 	</main>
 </body>
