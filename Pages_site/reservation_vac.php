@@ -11,13 +11,14 @@ session_start();
 <body>
 	<header>
 		<?php
+		$lien_deco='';
 		if (isset($_SESSION['id_user'])){
-			echo '<div id=\'hello\'>Bonjour '.$_SESSION['nom'].' '.$_SESSION['prenom'].' | <a href=".\deconnexion.php">déconnexion</a></div>';
+			echo "<div id='hello'>Bonjour ".$_SESSION['nom']." ".$_SESSION['prenom']." | <a href='.\deconnexion.php'>déconnexion</a></div>";
 		}
 		?>
-		<div id="fusion">
-		<a href=".\accueil.php"><img id="logo" class="superpose" src="..\images\Logo-les-rousses.png" alt="Logo Les Rousses" title="Accueil"></a>
-		<img id="background_header" class="superpose" src="..\images\jura.jpg" alt="Le jura" title="Le jura" id="fusion"></div>
+		<div id="banner">
+		<a href=".\accueil.php"><img id="logo" src="..\images\Logo-les-rousses.png" alt="Logo Les Rousses" title="Accueil"></a>
+		<img id="background_header" src="..\images\jura_banner.jpg" alt="Le jura" title="Le jura"></div>
 		<h1>Village Les Rousses</h1>
 		<nav><ul>
 			<li><a href=".\Accueil.php">Accueil</a></li>

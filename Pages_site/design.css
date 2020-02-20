@@ -12,14 +12,9 @@ main{
 	border-radius: 10px;
 	position: relative;
 }
-#fusion{
+#banner{
 	position: relative;
-}
-.superpose {
-   position: top;
-   margin-top: 2px;
-   margin-left: 10%;
-
+	margin-left: 0%;
 }
 #logo {
    z-index: 11;
@@ -34,7 +29,7 @@ main{
 }
 #background_header {
    z-index: 10;
-   width: 80%;
+   width: 100%;
 }
 h1{
 	text-align: center;
@@ -112,9 +107,15 @@ nav ul li ul li a{
 }
 
 #hello{
-	width: 30%;
-	float: right;
-	text-align: left;
+	position: absolute;
+	text-align: right;
+	z-index: 999;
+	left: 84%;
+	background-color: white;
+}
+a {
+   pointer-events: auto !important;  
+   cursor: pointer !important;
 }
 p.texte{
 	padding-left: 5%;
