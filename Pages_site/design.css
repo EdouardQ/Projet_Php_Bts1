@@ -7,7 +7,7 @@ main, nav{
 }
 main{
 	padding: 10px 20px 10px 20px;
-	margin-bottom: 25px;
+	margin-bottom: 5%;
 	background-color: #E4E6FF;
 	border-radius: 10px;
 	position: relative;
@@ -30,6 +30,15 @@ main{
 #background_header {
    z-index: 10;
    width: 100%;
+}
+#cadre{
+	border-radius: 20px;
+	border: 3px solid #FDA12F;
+}
+legend{
+	color: #FDA12F;
+	text-align: center;
+	font-size: 150%;
 }
 h1{
 	text-align: center;

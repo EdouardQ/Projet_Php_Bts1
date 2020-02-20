@@ -33,21 +33,28 @@ session_start();
 	<main>
 		<div><h3>Information :</h3>Les materiels audio et video pourront être demandé à l'accueil.<br>Les reservations professionnelles ne sont pas disponible en période de vacances scolaires.</div>
 		<form method="post" action="...........">
-			<fieldset>
+			<fieldset id="cadre">
 				<legend><h3>Reservation professionelle</h3></legend>
 				<p class="form">Nombre de personnes : <input type="number" name="nombre_pers">
 				<span class="form">Type de chambre :</span><select>
-				 	<option value="......">.......</option>
+				 	<option value="2c2l">2 chambre a 2 lits</option>
+				 	<option value="1c1ld">1 chambre a 1 lit double</option>
+				 	<option value="1c3l">1 chambre a 3 lits</option>
+				 	<option value="1c4l">1 chambre a 4 lits</option>
+				 	<option value="1cmr">1 chambre mobilite reduite</option>
 				 </select>
 				<span class="form">Restauration :</span><select>
-				 	<option selected="selected" value="......">Aucune</option>
-				 	<option value="......">demi-pension</option>
-				 	<option value="......">pension complète</option>
+				 	<option selected="selected" value="aucune">Aucune</option>
+				 	<option value="demi_pension">demi-pension</option>
+				 	<option value="pension_complete">pension complète</option>
 				 </select></p>
 				<p class="form">Date de début : <input type="date" name="date_debut_sejour">
 					<span class="form">Date de fin :</span><input type="date" name="date_fin_sejour">
 					<span class="form">Type de salle :</span><select>
-				 	<option value="......">.......</option>
+				 		<option value="sc196">Salle de conférence de 196 places</option>
+				 		<option value="sc50">Salle de commission de 50 places</option>
+				 		<option value="sc25">Salle de commission de 25 places</option>
+				 		<option value="sc10">Salle de commission de 10 places</option>
 				 </select></p>
 				 <img id="conf" src="..\images\salle.jpg"><br>
 				<input id="valider" type="submit" name="valider" value="valider">

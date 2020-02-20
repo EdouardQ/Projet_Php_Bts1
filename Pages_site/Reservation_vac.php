@@ -33,20 +33,24 @@ session_start();
 	<main>
 		<div><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
 		<form method="post" action="...........">
-			<fieldset>
+			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
-				<p>Nombre de personnes : <input type="number" name="nombre_pers">
-				Type de chambre : <select>
-				 	<option value="......">.......</option>
+				<p class="form">Nombre de personnes : <input type="number" name="nombre_pers">
+				<span class="form">Type de chambre :</span><select>
+				 	<option value="2c2l">2 chambre a 2 lits</option>
+				 	<option value="1c1ld">1 chambre a 1 lit double</option>
+				 	<option value="1c3l">1 chambre a 3 lits</option>
+				 	<option value="1c4l">1 chambre a 4 lits</option>
+				 	<option value="1cmr">1 chambre mobilite reduite</option>
 				 </select>
-				Restauration : <select>
-				 	<option value="......">Aucune</option>
-				 	<option value="......">demi-pension</option>
-				 	<option value="......">pension complète</option>
+				<span class="form">Restauration :</span><select>
+				 	<option value="aucune">Aucune</option>
+				 	<option value="demi_pension">demi-pension</option>
+				 	<option value="pension_complete">pension complète</option>
 				 </select></p>
-				<p>Date de début : <input type="date" name="date_debut_sejour">
-					Date de fin : <input type="date" name="date_fin_sejour"></p>
-				<input type="submit" name="valider" value="valider">
+				<p class="form">Date de début : <input type="date" name="date_debut_sejour">
+				<span class="form">	Date de fin :</span><input type="date" name="date_fin_sejour"></p>
+				<input id="valider" type="submit" name="valider" value="valider">
       			<input type="reset" name="reinitialiser" value="reinitialiser">
 			</fieldset>
 		</form>
