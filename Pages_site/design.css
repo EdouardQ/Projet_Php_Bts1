@@ -138,3 +138,12 @@ span.form{
 	padding-left: 20px;
 	padding-right: 5px;
 }
+#meme{
+	text-decoration: none;
+	color: black;
+}
+#courage{
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
