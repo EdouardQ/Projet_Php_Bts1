@@ -5,7 +5,7 @@ function Connection ($servername,$user, $password, $dbname){
  	return $cnx;
  }
 function Connexion_user ($cnx, $email, $mdp){
-	$sql="SELECT id_user, nom, prenom FROM utilisateur WHERE email='$email' and mdp='$mdp'";
+	$sql="SELECT id_user, nom, prenom FROM utilisateur WHERE email='$email' and mdp=sha1('$mdp')";
  	$pdoreq=$cnx->query($sql);
  	$pdoreq -> setFetchMode(PDO::FETCH_BOTH);
  	foreach ($pdoreq as $var) {
