@@ -3,11 +3,7 @@
 
 ![](./MCD.png)
 
-code sql écrit
-
-dbase créée
-
-bannière à opti
+TODO:
 
 réservation à faire et à tester (html, css, php, sql)
 
