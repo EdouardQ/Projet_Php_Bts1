@@ -30,7 +30,7 @@ session_start();
 		<fieldset>
 			<p>Nom : <input type="text" name="nom"> Prénom : <input type="text" name="prenom"></p>
 			<p>e-mail : <input type="email" name="email"> Mot de passe : <input type="password" name="mdp"></p>
-			<p>Numéro de téléphone : <input type="tel" name="telephone"> Entreprise : <input type="text" name="entreprise"></p>
+			<p>Numéro de téléphone : <input type="tel" name="telephone" minlength="10"> Entreprise : <input type="text" name="entreprise"></p>
 		</fieldset>
 		<input type="submit" name="Envoyer" id="envoyer_creer_compte">
 		<input type="reset" name="Effacer" id="effacer">
