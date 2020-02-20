@@ -31,7 +31,7 @@ session_start();
 		</ul></nav>
 	</header>
 	<main>
-		<div><h3>Information :</h3>Les materiels audio et video pourront être demandé à l'accueil.<br>Les reservations professionnelles ne sont pas disponible en période de vacances scolaires.</div>
+		<div><h3>Information :</h3>Le materiel audio et video pourront être demandé à <a href=".\Courage.php" target="blank" id="meme">l'accueil</a>.<br>Les reservations professionnelles ne sont pas disponible en période de vacances scolaires.</div>
 		<form method="post" action="...........">
 			<fieldset id="cadre">
 				<legend><h3>Reservation professionelle</h3></legend>
