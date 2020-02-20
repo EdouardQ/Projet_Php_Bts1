@@ -1,4 +1,5 @@
 <?php
+session_start();
 $user_db='root';
 $password_db='';
 $servername='127.0.0.1';
@@ -6,7 +7,7 @@ $dbname='station_les_rousses';
 
 include '..\functions.php';
 
-if (isset($_POST['email']) && isset($_POST['mdp'])) {
+if ($_POST['email']!="" && $_POST['mdp']!="") {
 	$email=$_POST['email'];
 	$mdp=$_POST['mdp'];
 	try{
@@ -17,5 +18,7 @@ if (isset($_POST['email']) && isset($_POST['mdp'])) {
 		echo "Erreur : ".$event -> getMessage()."<br/>";
 		die();
 	}
+}else{
+	echo "Champ(s) renseigné(s) vide(s).";
 }
 ?>

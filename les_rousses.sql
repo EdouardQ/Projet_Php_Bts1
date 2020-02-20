@@ -1,7 +1,7 @@
 CREATE DATABASE station_les_rousses character set UTF8 collate utf8_bin;
 USE station_les_rousses;
 
-CREATE TABLE Utilisateur (id_user INT AUTO_INCREMENT NOT NULL, email VARCHAR(50), nom VARCHAR(30), prenom VARCHAR(30), mdp VARCHAR(200), entreprise VARCHAR(30), telephone char(13), PRIMARY KEY (id_user)) ENGINE=InnoDB;
+CREATE TABLE Utilisateur (id_user INT AUTO_INCREMENT NOT NULL, email VARCHAR(50), nom VARCHAR(30), prenom VARCHAR(30), mdp VARCHAR(200) NOT NULL, entreprise VARCHAR(30), telephone char(13), PRIMARY KEY (id_user)) ENGINE=InnoDB;
 CREATE TABLE Sejour (id_sejour INT AUTO_INCREMENT NOT NULL, nb_logement INTEGER, nb_adulte INT, nb_enfant INT, nb_enfant_bas_age INT, nb_pension INT, nb_demi_pension INT, PRIMARY KEY (id_sejour)) ENGINE=InnoDB;
 CREATE TABLE Logement (id_logement INT AUTO_INCREMENT NOT NULL, capacite_max INT, type VARCHAR(50), PRIMARY KEY (id_logement)) ENGINE=InnoDB;
 CREATE TABLE Materiel (id_materiel INT AUTO_INCREMENT NOT NULL, nom_materiel VARCHAR(35), PRIMARY KEY (id_materiel)) ENGINE=InnoDB;

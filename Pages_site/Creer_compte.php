@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Les Rousses - Crééer mon compte</title>
+	<title>Les Rousses - Créer mon compte</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="./design.css" media="all">
 </head>

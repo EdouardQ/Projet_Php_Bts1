@@ -14,7 +14,6 @@ function Connexion_user ($cnx, $email, $mdp){
  		$prenom_pdo=$var[2];
  	}
  	if (isset($id_user_pdo)){
-		session_start();
 		$_SESSION['id_user'] =$id_user_pdo;
 		$_SESSION['nom'] = $nom_pdo;
 		$_SESSION['prenom'] = $prenom_pdo;
@@ -41,6 +40,24 @@ function insert_into($cnx, $sql){
 
 function truncate($cnx,$table){
 	$sql="SET FOREIGN_KEY_CHECKS = 0;TRUNCATE TABLE $table;SET FOREIGN_KEY_CHECKS = 1";
+	$cnx->exec($sql);
+}
+
+function test_email($cnx, $email){
+	$test=1;
+	$sql="SELECT id_user FROM utilisateur WHERE email='$email'";
+	$pdoreq=$cnx->query($sql);
+ 	$pdoreq -> setFetchMode(PDO::FETCH_BOTH);
+ 	foreach ($pdoreq as $var) {
+ 		if (isset($var[0])){
+ 			$test=0;
+ 		}
+ 	}
+ 	return $test;
+}
+
+function creer_compte($cnx, $nom, $prenom, $email, $mdp, $telephone, $entreprise){
+	$sql="INSERT INTO utilisateur (nom, prenom, email, mdp, telephone, entreprise) VALUES ('$nom', '$prenom', '$email', sha1('$mdp'), '$telephone', '$entreprise')";
 	$cnx->exec($sql);
 }
 ?>
