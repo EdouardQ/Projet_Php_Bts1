@@ -11,6 +11,7 @@ session_start();
 <body>
 	<header>
 		<?php
+		
 		if (isset($_SESSION['id_user'])){
 			echo '<div id=\'hello\'>Bonjour '.$_SESSION['nom'].' '.$_SESSION['prenom'].' | <a href=".\deconnexion.php">déconnexion</a></div>';
 		}

@@ -1,9 +1,9 @@
-CREATE DATABASE station_les_rousses;
+CREATE DATABASE station_les_rousses character set UTF8 collate utf8_bin;
 USE station_les_rousses;
 
 CREATE TABLE Utilisateur (id_user INT AUTO_INCREMENT NOT NULL, email VARCHAR(50), nom VARCHAR(30), prenom VARCHAR(30), mdp VARCHAR(200), entreprise VARCHAR(30), PRIMARY KEY (id_user)) ENGINE=InnoDB;
 CREATE TABLE Sejour (id_sejour INT AUTO_INCREMENT NOT NULL, nb_logement INTEGER, nb_adulte INT, nb_enfant INT, nb_enfant_bas_age INT, nb_pension INT, nb_demi_pension INT, PRIMARY KEY (id_sejour)) ENGINE=InnoDB;
-CREATE TABLE Logement (id_logement INT AUTO_INCREMENT NOT NULL, capacite_max INT, PRIMARY KEY (id_logement)) ENGINE=InnoDB;
+CREATE TABLE Logement (id_logement INT AUTO_INCREMENT NOT NULL, capacite_max INT, type VARCHAR(50), PRIMARY KEY (id_logement)) ENGINE=InnoDB;
 CREATE TABLE Materiel (id_materiel INT AUTO_INCREMENT NOT NULL, nom_materiel VARCHAR(35), PRIMARY KEY (id_materiel)) ENGINE=InnoDB;
 CREATE TABLE Salle (id_salle INT AUTO_INCREMENT NOT NULL, nom_salle VARCHAR(35), place_dispo_salle INTEGER, PRIMARY KEY (id_salle)) ENGINE=InnoDB;
 CREATE TABLE Paiment (id_paiment INT AUTO_INCREMENT NOT NULL, accompte FLOAT, solde FLOAT, mode_paiment VARCHAR(10), id_user INT, PRIMARY KEY (id_paiment)) ENGINE=InnoDB;
@@ -21,14 +21,3 @@ ALTER TABLE Reservation_salle ADD CONSTRAINT FK_Reservation_salle_id_user FOREIG
 ALTER TABLE Reservation_salle ADD CONSTRAINT FK_Reservation_salle_id_salle FOREIGN KEY (id_salle) REFERENCES Salle (id_salle);
 ALTER TABLE Logement_attribue ADD CONSTRAINT FK_Logement_attribue_id_sejour FOREIGN KEY (id_sejour) REFERENCES Sejour (id_sejour);
 ALTER TABLE Logement_attribue ADD CONSTRAINT FK_Logement_attribue_id_logement FOREIGN KEY (id_logement) REFERENCES Logement (id_logement); 
-ALTER TABLE Logement ADD type VARCHAR(50);
-ALTER TABLE Logement ADD nombre INTEGER;
-INSERT INTO Logement(capacite_max,type,nombre)VALUES(4,'2 chambres à 2 lits',40);
-INSERT INTO Logement(capacite_max,type,nombre)VALUES(2,'1 chambre à 1 lit double',15);
-INSERT INTO Logement(capacite_max,type,nombre)VALUES(3,'1 chambre à 3 lits',8);
-INSERT INTO Logement(capacite_max,type,nombre)VALUES(4,'1 chambre à 4 lits',12);
-INSERT INTO Logement(capacite_max,type,nombre)VALUES(1,'1 chambre pour personne à mobilité réduite',1);
-INSERT INTO salle(nom_salle,place_dispo_salle)VALUES('Salle de conférence de 196 places',196);
-INSERT INTO salle(nom_salle,place_dispo_salle)VALUES('Salle de commission de 50 places',50);
-INSERT INTO salle(nom_salle,place_dispo_salle)VALUES('Salle de commission de 25 places',25);
-INSERT INTO salle(nom_salle,place_dispo_salle)VALUES('Salle de commission de 10 places',10);
