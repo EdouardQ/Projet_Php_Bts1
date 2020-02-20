@@ -4,18 +4,12 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Les Rousses - Mon compte</title>
+	<title>Les Rousses - Crééer mon compte</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="./design.css" media="all">
 </head>
 <body>
 	<header>
-		<?php
-		$lien_deco='';
-		if (isset($_SESSION['id_user'])){
-			echo "<div id='hello'>Bonjour ".$_SESSION['nom']." ".$_SESSION['prenom']." | <a href='.\deconnexion.php'>déconnexion</a></div>";
-		}
-		?>
 		<div id="banner">
 		<a href=".\accueil.php"><img id="logo" src="..\images\Logo-les-rousses.png" alt="Logo Les Rousses" title="Accueil"></a>
 		<img id="background_header" src="..\images\jura_banner.jpg" alt="Le jura" title="Le jura"></div>
@@ -31,21 +25,16 @@ session_start();
 		</ul></nav>
 	</header>
 	<main>
-	<?php
-	if (isset($_SESSION['id_user'])){
-		header('Location: .\Mes_infos.php');
-	}?>
-
-	<form method="post" id="identification" action=".\connexion.php">
+	<p><h3>Information :</h3>Veuillez rentrer vos informations personnelles :</p>
+	<form method="post" id="creation_compte" action=".\creation_compte.php">
 		<fieldset>
-			<p>e-mail : <input type="email" name="email"></p>
-			<p>Mot de passe : <input type="password" name="mdp"></p>
+			<p>Nom : <input type="text" name="nom"> Prénom : <input type="text" name="prenom"></p>
+			<p>e-mail : <input type="email" name="email"> Mot de passe : <input type="password" name="mdp"></p>
+			<p>Numéro de téléphone : <input type="tel" name="telephone"> Entreprise : <input type="text" name="entreprise"></p>
 		</fieldset>
-		<input type="submit" name="Connexion" id="connexion">
+		<input type="submit" name="Envoyer" id="envoyer_creer_compte">
 		<input type="reset" name="Effacer" id="effacer">
 	</form>
-
-	<a href=".\creer_compte.php">Créer un compte</a>
 </main>
 </body>
 </html>
