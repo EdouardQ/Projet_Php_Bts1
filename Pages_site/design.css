@@ -1,0 +1,130 @@
+html, body{
+	height: 100%;
+}
+main, nav{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+main{
+	padding: 10px 20px 10px 20px;
+	margin-bottom: 25px;
+	background-color: #E4E6FF;
+	border-radius: 10px;
+	position: relative;
+}
+#fusion{
+	position: relative;
+}
+.superpose {
+   position: top;
+   margin-top: 2px;
+   margin-left: 10%;
+
+}
+#logo {
+   z-index: 11;
+   position: absolute;
+}
+#conf{
+	width: 30%;
+	padding-left: 32%;
+}
+#valider{
+	margin-left: 40%;
+}
+#background_header {
+   z-index: 10;
+   width: 80%;
+}
+h1{
+	text-align: center;
+	width: 80%;	
+	margin-left: 10%;
+	margin-right: 10%;
+	color: white;
+	background-color: #DA7B04;
+}
+h2{
+	text-align: center;
+	color: white;
+	background-color: #FDA12F;
+}
+div.soust{
+	font-size: 115%;
+	font-weight: bold;
+}
+ul.pre li{
+	padding-left: 2%;
+	list-style-type: none;
+}
+nav > ul{
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+nav > ul > li{
+	display: inline-block;
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	border: solid 1px black;
+	width: 170px;
+	background-image: linear-gradient(60deg, #DA7B04, #FDA12F);
+}
+nav ul li a{
+	text-decoration: none;
+	color: white;
+}
+nav ul li {
+	text-decoration: none;
+	color: white;
+}
+nav ul li ul {
+	display: none;
+	padding: 0;
+	margin: 0;
+}
+nav ul li:hover ul{
+	width: 170px;
+	display: block;
+	position: absolute;
+	list-style: none;
+	margin-left: -1px;
+	margin-top: 1px;
+	border-top: 0;
+	border-left: solid 1px black;
+	border-right: solid 1px black;
+	border-bottom: solid 1px black;
+	z-index: 99;
+}
+nav ul li ul li{
+	margin-top: 1px;
+	margin-left: 0;
+	padding: 0;
+	line-height: 18px;
+	background-image: linear-gradient(60deg, #DA7B04, #FDA12F);
+}
+nav ul li ul li a{
+	margin: 0;
+	padding: 0;
+}
+
+#hello{
+	width: 30%;
+	float: right;
+	text-align: left;
+}
+p.texte{
+	padding-left: 5%;
+	padding-right: 5%;
+}
+p.form{
+	padding-left: 5%;
+	padding-right: 5%;
+}
+span.form{
+	padding-left: 20px;
+	padding-right: 5px;
+}
