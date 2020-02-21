@@ -15,7 +15,7 @@ if ($_POST['nom']!="" && $_POST['prenom']!="" && $_POST['email']!="" && $_POST['
 		if ($test==0){
 			echo "L'adresse e-mail renseignée existe déjà.<br>";
 		}else{
-			creer_compte($cnx, $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['mdp'], $_POST['telephone'], $_POST['entreprise']);
+			creer_compte ($cnx, $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['mdp'], $_POST['telephone'], $_POST['entreprise']);
 			Connexion_user ($cnx, $_POST['email'], $_POST['mdp']);
 		}
 	}
