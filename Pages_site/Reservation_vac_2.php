@@ -70,7 +70,7 @@ if ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
 						die();
 					}
 					?>
-				<div class="center"><input id="valider" type="submit" name="valider" value="Valider"></div>
+				<br><div class="center"><input id="valider" type="submit" name="valider" value="Valider"></div>
 			</fieldset>
 		</form>
 	</main>

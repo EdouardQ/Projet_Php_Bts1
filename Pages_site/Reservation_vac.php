@@ -60,7 +60,7 @@ include '..\functions.php';
 						die();
 					}
 					?>
-				</select></span></div>
+				</select></span></div><br>
 				<div class="center"><input id="valider" type="submit" name="Valider" value="Valider">
       			<input type="reset" name="Reinitialiser" value="Reinitialiser"></div>
 			</fieldset>
