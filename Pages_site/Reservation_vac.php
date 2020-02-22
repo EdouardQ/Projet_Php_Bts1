@@ -38,8 +38,8 @@ include '..\functions.php';
 		<form method="post" action="reservation_vac_2.php" autocomplete="off">
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
-				<p class="form">Nombre d'adulte(s)' : <input type="number" name="nb_adulte" min=0 style=" width : 40px">
-				<span class="form">Nombre d'enfant(s)' : <input type="number" name="nb_enfant" min=0 style=" width : 40px">
+				<p class="form">Nombre d'adulte(s) : <input type="number" name="nb_adulte" min=0 style=" width : 40px">
+				<span class="form">Nombre d'enfant(s) : <input type="number" name="nb_enfant" min=0 style=" width : 40px">
 				<span class="form">Restauration :</span><select name="restauration">
 				 	<option value="aucune">Aucune</option>
 				 	<option value="demi_pension">demi-pension</option>
@@ -61,8 +61,8 @@ include '..\functions.php';
 					}
 					?>
 				</select></p>
-				<input id="valider" type="submit" name="Valider" value="Valider">
-      			<input type="reset" name="Reinitialiser" value="Reinitialiser">
+				<div class="center"><input id="valider" type="submit" name="Valider" value="Valider">
+      			<input type="reset" name="Reinitialiser" value="Reinitialiser"></div>
 			</fieldset>
 		</form>
 		<?php
