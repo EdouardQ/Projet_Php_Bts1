@@ -137,10 +137,6 @@ p.texte{
 	padding-left: 5%;
 	padding-right: 5%;
 }
-p.form{
-	padding-left: 2%;
-	padding-right: 2%;
-}
 span.form{
 	padding-left: 20px;
 	padding-right: 5px;
@@ -163,7 +159,6 @@ footer{
 footer p{
 	margin-right: 25%;
 	margin-left: 25%;
-	background-color: #FFB55A;
 	font-style: italic;
 	font-size: 0.8em;
 	text-align: center;

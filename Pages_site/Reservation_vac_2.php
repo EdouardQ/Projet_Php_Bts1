@@ -44,7 +44,6 @@ if ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
 		<form method="post" action="reservation_vac_3.php">
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
-				<p class="form">
 					<?php
 					setlocale(LC_TIME, "fr_FR");
 					try{
@@ -71,7 +70,6 @@ if ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
 						die();
 					}
 					?>
-				</p>
 				<div class="center"><input id="valider" type="submit" name="valider" value="Valider"></div>
 			</fieldset>
 		</form>
