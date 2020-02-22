@@ -1,9 +1,9 @@
 <?php
 session_start();
-$user_db='root';
-$password_db='';
-$servername='127.0.0.1';
-$dbname='station_les_rousses';
+$_SESSION['user_db']='root';
+$_SESSION['password_db']='';
+$_SESSION['servername']='127.0.0.1';
+$_SESSION['dbname']='station_les_rousses';
 
 include '..\functions.php';
 
@@ -11,7 +11,7 @@ if ($_POST['email']!="" && $_POST['mdp']!="") {
 	$email=$_POST['email'];
 	$mdp=$_POST['mdp'];
 	try{
-		$cnx=Connection ($servername,$user_db, $password_db, $dbname);
+		$cnx=Connection ($_SESSION['servername'],$_SESSION['user_db'], $_SESSION['password_db'], $_SESSION['dbname']);
 	 	Connexion_user($cnx,$email,$mdp);
 	}
 	catch(PDOException $event) {

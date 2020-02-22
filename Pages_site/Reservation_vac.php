@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['id_user'])){
 		header('Location: .\Mon_compte.php');
 	}
+include '..\functions.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,24 +36,34 @@ if (!isset($_SESSION['id_user'])){
 	</header>
 	<main>
 		<div><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
-		<form method="post" action="...........">
+		<form method="post" action="reservation_vac_2.php">
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
-				<p class="form">Nombre de personnes : <input type="number" name="nombre_pers">
-				<span class="form">Type de chambre :</span><select>
-				 	<option value="2c2l">2 chambre a 2 lits</option>
-				 	<option value="1c1ld">1 chambre a 1 lit double</option>
-				 	<option value="1c3l">1 chambre a 3 lits</option>
-				 	<option value="1c4l">1 chambre a 4 lits</option>
-				 	<option value="1cmr">1 chambre mobilite reduite</option>
-				 </select>
+				<p class="form">Nombre d'adulte(s)' : <input type="number" name="nb_adulte" style=" width : 40px" >
+				<span class="form">Nombre d'enfant(s)' : <input type="number" name="nb_enfant" style=" width : 40px">
 				<span class="form">Restauration :</span><select>
 				 	<option value="aucune">Aucune</option>
 				 	<option value="demi_pension">demi-pension</option>
 				 	<option value="pension_complete">pension complète</option>
 				 </select></p>
-				<p class="form">Date de début : <input type="date" name="date_debut_sejour">
-				<span class="form">	Date de fin :</span><input type="date" name="date_fin_sejour"></p>
+				<p class="form">
+					Date de début : <select name="date_debut_sejour">
+					<?php
+					try{
+						$cnx=Connection ($_SESSION['servername'],$_SESSION['user_db'], $_SESSION['password_db'], $_SESSION['dbname']);
+						$pdoreq=affiche_vacances($cnx);
+
+						foreach ($pdoreq as $vacances) {
+							echo "<option value='$vacances[0]'>$vacances[0]</option>";
+						}
+					}
+					catch(PDOException $event) {
+						echo "Erreur : ".$event -> getMessage()."<br/>";
+						die();
+					}
+					?>
+				</select>
+				<span class="form">	Nombre de semaine(s) :</span><input type="number" name="nb_semaine" style=" width : 40px"></p>
 				<input id="valider" type="submit" name="valider" value="valider">
       			<input type="reset" name="reinitialiser" value="reinitialiser">
 			</fieldset>
