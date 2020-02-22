@@ -59,9 +59,9 @@ if (!isset($_SESSION['id_user'])){
 				 		<option value="sc25">Salle de commission de 25 places</option>
 				 		<option value="sc10">Salle de commission de 10 places</option>
 				 </select></p>
-				 <img id="conf" src="..\images\salle.jpg"><br>
-				<input id="valider" type="submit" name="valider" value="valider">
-      			<input type="reset" name="reinitialiser" value="reinitialiser">
+				 <div class="center"><img id="conf" src="..\images\salle.jpg"></div>
+				<div class="center"><input type="submit" name="valider" value="valider">
+      			<input type="reset" name="reinitialiser" value="reinitialiser"></div>
 			</fieldset>
 		</form>
 	</main>

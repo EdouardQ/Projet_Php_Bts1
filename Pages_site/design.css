@@ -22,10 +22,9 @@ main{
 }
 #conf{
 	width: 30%;
-	padding-left: 32%;
 }
-#valider{
-	margin-left: 40%;
+div.center{
+	text-align: center;
 }
 #background_header {
    z-index: 10;
