@@ -36,7 +36,7 @@ session_start();
 		header('Location: .\Mes_infos.php');
 	}?>
 
-	<form method="post" id="identification" action=".\connexion.php">
+	<form method="post" id="identification" action=".\connexion.php" autocomplete="off">
 		<fieldset>
 			<p>e-mail : <input type="email" name="email"></p>
 			<p>Mot de passe : <input type="password" name="mdp"></p>

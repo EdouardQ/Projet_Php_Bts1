@@ -35,7 +35,7 @@ include '..\functions.php';
 	</header>
 	<main>
 		<div class="info"><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
-		<form method="post" action="reservation_vac_2.php">
+		<form method="post" action="reservation_vac_2.php" autocomplete="off">
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
 				<p class="form">Nombre d'adulte(s)' : <input type="number" name="nb_adulte" min=0 style=" width : 40px">

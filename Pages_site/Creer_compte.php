@@ -26,7 +26,7 @@ session_start();
 	</header>
 	<main>
 	<p><h3>Information :</h3>Veuillez rentrer vos informations personnelles :</p>
-	<form method="post" id="creation_compte" action=".\creation_compte.php">
+	<form method="post" id="creation_compte" action=".\creation_compte.php" autocomplete="on">
 		<fieldset>
 			<p>Nom : <input type="text" name="nom"> Prénom : <input type="text" name="prenom"></p>
 			<p>e-mail : <input type="email" name="email"> Mot de passe : <input type="password" name="mdp"></p>
