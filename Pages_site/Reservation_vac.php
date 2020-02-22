@@ -15,7 +15,6 @@ include '..\functions.php';
 <body>
 	<header>
 		<?php
-		$lien_deco='';
 		if (isset($_SESSION['id_user'])){
 			echo "<div id='hello'>Bonjour ".$_SESSION['nom']." ".$_SESSION['prenom']." | <a href='.\deconnexion.php'>déconnexion</a></div>";
 		}
@@ -41,13 +40,13 @@ include '..\functions.php';
 				<legend><h3>Reservation de vacances</h3></legend>
 				<p class="form">Nombre d'adulte(s)' : <input type="number" name="nb_adulte" style=" width : 40px" >
 				<span class="form">Nombre d'enfant(s)' : <input type="number" name="nb_enfant" style=" width : 40px">
-				<span class="form">Restauration :</span><select>
+				<span class="form">Restauration :</span><select name="restauration">
 				 	<option value="aucune">Aucune</option>
 				 	<option value="demi_pension">demi-pension</option>
 				 	<option value="pension_complete">pension complète</option>
 				 </select></p>
 				<p class="form">
-					Date de début : <select name="date_debut_sejour">
+					Vacances : : <select name="date_vacances">
 					<?php
 					try{
 						$cnx=Connection ($_SESSION['servername'],$_SESSION['user_db'], $_SESSION['password_db'], $_SESSION['dbname']);
