@@ -56,7 +56,7 @@ if ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
 							$table_date[]=$vacances_date[0];
 							$table_date[]=$vacances_date[1];
 						}
-						echo "Date de début : <select name='date_debut_sejour'>";
+						echo "<div class='center'>Date de début : <select name='date_debut_sejour'>";
 						for ($i=0; $i < count($table_date); $i+=2) { 
 							echo "<option value='$table_date[$i]'>".strftime("%A %d %B %G", strtotime($table_date[$i]))."</option>";
 						}
@@ -64,7 +64,7 @@ if ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
 						for ($i=1; $i < count($table_date); $i+=2) { 
 							echo "<option value='$table_date[$i]'>".strftime("%A %d %B %G", strtotime($table_date[$i]))."</option>";
 						}
-						echo "</select>";
+						echo "</select></div>";
 					}
 					catch(PDOException $event) {
 						echo "Erreur : ".$event -> getMessage()."<br/>";
