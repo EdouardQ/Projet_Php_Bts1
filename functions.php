@@ -17,7 +17,7 @@ function Connexion_user ($cnx, $email, $mdp){
 		$_SESSION['id_user'] =$id_user_pdo;
 		$_SESSION['nom'] = $nom_pdo;
 		$_SESSION['prenom'] = $prenom_pdo;
-		header('Location: ./Mes_infos.php');
+		header('Location: ./Accueil.php');
 		exit;
 	}else{
 		echo "Login incorrect";
@@ -59,5 +59,11 @@ function test_email($cnx, $email){
 function creer_compte($cnx, $nom, $prenom, $email, $mdp, $telephone, $entreprise){
 	$sql="INSERT INTO utilisateur (nom, prenom, email, mdp, telephone, entreprise) VALUES ('$nom', '$prenom', '$email', sha1('$mdp'), '$telephone', '$entreprise')";
 	$cnx->exec($sql);
+}
+
+function affiche_vacances($cnx){
+	$sql="SELECT nom FROM date_vacances where date_debut>=now()";
+	$pdoreq=$cnx->query($sql);
+	return $pdoreq;
 }
 ?>
