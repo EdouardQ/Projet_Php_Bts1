@@ -24,6 +24,7 @@ if ($_POST['nom']!="" && $_POST['prenom']!="" && $_POST['email']!="" && $_POST['
 	die();
 	}
 }else{
-	echo "Champ(s) renseigné(s) vide(s).";
+	$_SESSION['champ_vide']=1;
+	header('Location: ./Creer_compte.php');
 }
 ?>

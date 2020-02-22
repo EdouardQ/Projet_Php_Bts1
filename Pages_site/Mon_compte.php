@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '..\functions.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,6 +45,9 @@ session_start();
 		<input type="submit" name="Connexion" id="connexion">
 		<input type="reset" name="Effacer" id="effacer">
 	</form>
+	<?php
+		$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
+	?>
 
 	<a href=".\creer_compte.php">Créer un compte</a>
 </main>

@@ -168,3 +168,9 @@ footer p{
 	position: static;
 	width: 100%;
 }
+#champ_vide{
+	font-family: arial;
+	font-weight: bold;
+	color: red;
+	font-size: 1em;
+}

@@ -19,6 +19,7 @@ if ($_POST['email']!="" && $_POST['mdp']!="") {
 		die();
 	}
 }else{
-	echo "Champ(s) renseigné(s) vide(s).";
+	$_SESSION['champ_vide']=1;
+	header('Location: ./Mon_compte.php');
 }
 ?>

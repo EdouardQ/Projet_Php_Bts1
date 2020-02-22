@@ -56,6 +56,14 @@ function test_email($cnx, $email){
  	return $test;
 }
 
+function champ_vide($bool_champ_vide){
+	if ($bool_champ_vide==1){
+			echo "<p id='champ_vide'>Champ(s) vide(s)</p>";
+		}
+		$bool_champ_vide=0;
+		return $bool_champ_vide;
+}
+
 function creer_compte($cnx, $nom, $prenom, $email, $mdp, $telephone, $entreprise){
 	$sql="INSERT INTO utilisateur (nom, prenom, email, mdp, telephone, entreprise) VALUES ('$nom', '$prenom', '$email', sha1('$mdp'), '$telephone', '$entreprise')";
 	$cnx->exec($sql);

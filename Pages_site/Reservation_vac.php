@@ -67,6 +67,10 @@ include '..\functions.php';
       			<input type="reset" name="reinitialiser" value="reinitialiser">
 			</fieldset>
 		</form>
+		<?php
+		$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
+	?>
+</main>
 	</main>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '..\functions.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,6 +36,9 @@ session_start();
 		<input type="submit" name="Envoyer" id="envoyer_creer_compte">
 		<input type="reset" name="Effacer" id="effacer">
 	</form>
+	<?php
+		$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
+	?>
 </main>
 <footer>
 		<p>Bourgogne Franche-Comté Tourisme - Montagnes du Jura - Parc naturel régional du Haut-Jura - Jura Tourisme - Léman sans frontière<br>Village plaisir</p>
