@@ -44,9 +44,8 @@ include '..\functions.php';
 				 	<option value="aucune">Aucune</option>
 				 	<option value="demi_pension">demi-pension</option>
 				 	<option value="pension_complete">pension complète</option>
-				 </select></p>
-				<p class="form">
-					Vacances : <select name="nom_vacances">
+				 </select>
+				<span class="form">Vacances : <select name="nom_vacances">
 					<?php
 					try{
 						$cnx=Connection ($_SESSION['servername'],$_SESSION['user_db'], $_SESSION['password_db'], $_SESSION['dbname']);
