@@ -38,8 +38,8 @@ include '..\functions.php';
 		<form method="post" action="reservation_vac_2.php">
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
-				<p class="form">Nombre d'adulte(s)' : <input type="number" name="nb_adulte" style=" width : 40px" >
-				<span class="form">Nombre d'enfant(s)' : <input type="number" name="nb_enfant" style=" width : 40px">
+				<p class="form">Nombre d'adulte(s)' : <input type="number" name="nb_adulte" min=0 style=" width : 40px">
+				<span class="form">Nombre d'enfant(s)' : <input type="number" name="nb_enfant" min=0 style=" width : 40px">
 				<span class="form">Restauration :</span><select name="restauration">
 				 	<option value="aucune">Aucune</option>
 				 	<option value="demi_pension">demi-pension</option>
@@ -62,7 +62,7 @@ include '..\functions.php';
 					}
 					?>
 				</select>
-				<span class="form">	Nombre de semaine(s) :</span><input type="number" name="nb_semaine" style=" width : 40px"></p>
+				<span class="form">	Nombre de semaine(s) :</span><input type="number" name="nb_semaine" min=1 style=" width : 40px"></p>
 				<input id="valider" type="submit" name="valider" value="valider">
       			<input type="reset" name="reinitialiser" value="reinitialiser">
 			</fieldset>

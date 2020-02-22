@@ -1,6 +1,11 @@
 <?php
 session_start();
 include '..\functions.php';
+$_SESSION['nb_adulte']=$_POST['nb_adulte'];
+$_SESSION['nb_enfant']=$_POST['nb_enfant'];
+$_SESSION['restauration']=$_POST['restauration'];
+$_SESSION['date_vacances']=$_POST['date_vacances'];
+$_SESSION['nb_semaine']=$_POST['nb_semaine'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,16 +37,9 @@ include '..\functions.php';
 	</header>
 	<main>
 		<div><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
-		<form method="post" action="reservation_vac_2.php">
+		<form method="post" action="reservation_vac_3.php">
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
-				<p class="form">Nombre d'adulte(s)' : <input type="number" name="nb_adulte" style=" width : 40px" >
-				<span class="form">Nombre d'enfant(s)' : <input type="number" name="nb_enfant" style=" width : 40px">
-				<span class="form">Restauration :</span><select>
-				 	<option value="aucune">Aucune</option>
-				 	<option value="demi_pension">demi-pension</option>
-				 	<option value="pension_complete">pension complète</option>
-				 </select></p>
 				<p class="form">
 					Date de début : <select name="date_debut_sejour">
 					<?php
@@ -58,8 +56,7 @@ include '..\functions.php';
 						die();
 					}
 					?>
-				</select>
-				<span class="form">	Nombre de semaine(s) :</span><input type="number" name="nb_semaine" style=" width : 40px"></p>
+				</select></p>
 				<input id="valider" type="submit" name="valider" value="valider">
       			<input type="reset" name="reinitialiser" value="reinitialiser">
 			</fieldset>
