@@ -63,13 +63,16 @@ include '..\functions.php';
 					?>
 				</select>
 				<span class="form">	Nombre de semaine(s) :</span><input type="number" name="nb_semaine" min=1 style=" width : 40px"></p>
-				<input id="valider" type="submit" name="valider" value="valider">
-      			<input type="reset" name="reinitialiser" value="reinitialiser">
+				<input id="valider" type="submit" name="Valider" value="valider">
+      			<input type="reset" name="Reinitialiser" value="reinitialiser">
 			</fieldset>
 		</form>
 		<?php
 		$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
 	?>
 </main>
+<footer>
+	<p>Bourgogne Franche-Comté Tourisme - Montagnes du Jura - Parc naturel régional du Haut-Jura - Jura Tourisme - Léman sans frontière<br>Village plaisir</p>
+</footer>
 </body>
 </html>
