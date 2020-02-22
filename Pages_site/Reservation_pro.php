@@ -65,5 +65,8 @@ if (!isset($_SESSION['id_user'])){
 			</fieldset>
 		</form>
 	</main>
+	<footer>
+		<p>Bourgogne Franche-Comté Tourisme - Montagnes du Jura - Parc naturel régional du Haut-Jura - Jura Tourisme - Léman sans frontière<br>Village plaisir</p>
+	</footer>
 </body>
 </html>

@@ -36,5 +36,8 @@ session_start();
 		<input type="reset" name="Effacer" id="effacer">
 	</form>
 </main>
+<footer>
+		<p>Bourgogne Franche-Comté Tourisme - Montagnes du Jura - Parc naturel régional du Haut-Jura - Jura Tourisme - Léman sans frontière<br>Village plaisir</p>
+	</footer>
 </body>
 </html>
