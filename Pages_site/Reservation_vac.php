@@ -71,6 +71,5 @@ include '..\functions.php';
 		$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
 	?>
 </main>
-	</main>
 </body>
 </html>
