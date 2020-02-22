@@ -1,11 +1,15 @@
 <?php
 session_start();
 include '..\functions.php';
-$_SESSION['nb_adulte']=$_POST['nb_adulte'];
-$_SESSION['nb_enfant']=$_POST['nb_enfant'];
-$_SESSION['restauration']=$_POST['restauration'];
-$_SESSION['date_vacances']=$_POST['date_vacances'];
-$_SESSION['nb_semaine']=$_POST['nb_semaine'];
+if ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
+	$_SESSION['nb_adulte']=$_POST['nb_adulte'];
+	$_SESSION['nb_enfant']=$_POST['nb_enfant'];
+	$_SESSION['restauration']=$_POST['restauration'];
+	$_SESSION['nom_vacances']=$_POST['nom_vacances'];
+}else{
+	$_SESSION['champ_vide']=1;
+	header('Location: ./Reservation_vac.php');
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,24 +45,34 @@ $_SESSION['nb_semaine']=$_POST['nb_semaine'];
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
 				<p class="form">
-					Date de début : <select name="date_debut_sejour">
 					<?php
+					setlocale(LC_TIME, "fr_FR");
 					try{
 						$cnx=Connection ($_SESSION['servername'],$_SESSION['user_db'], $_SESSION['password_db'], $_SESSION['dbname']);
-						$pdoreq=affiche_vacances($cnx);
+						$pdoreq=affiche_date_vacances($cnx,$_SESSION['nom_vacances']);
 
-						foreach ($pdoreq as $vacances) {
-							echo "<option value='$vacances[0]'>$vacances[0]</option>";
+						$table_date=[];
+						foreach ($pdoreq as $vacances_date) { //$vacances_date[0] = debut / $vacances_date[1] = fin
+							$table_date[]=$vacances_date[0];
+							$table_date[]=$vacances_date[1];
 						}
+						echo "Date de début : <select name='date_debut_sejour'>";
+						for ($i=0; $i < count($table_date); $i+=2) { 
+							echo "<option value='$table_date[$i]'>".strftime("%A %d %B %G", strtotime($table_date[$i]))."</option>";
+						}
+						echo "</select><span class='form'>Date de fin : <select name='date_fin_sejour'>";
+						for ($i=1; $i < count($table_date); $i+=2) { 
+							echo "<option value='$table_date[$i]'>".strftime("%A %d %B %G", strtotime($table_date[$i]))."</option>";
+						}
+						echo "</select>";
 					}
 					catch(PDOException $event) {
 						echo "Erreur : ".$event -> getMessage()."<br/>";
 						die();
 					}
 					?>
-				</select></p>
-				<input id="valider" type="submit" name="valider" value="valider">
-      			<input type="reset" name="reinitialiser" value="reinitialiser">
+				</p>
+				<input id="valider" type="submit" name="valider" value="Valider">
 			</fieldset>
 		</form>
 	</main>
