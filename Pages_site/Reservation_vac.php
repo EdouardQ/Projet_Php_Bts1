@@ -34,7 +34,7 @@ include '..\functions.php';
 		</ul></nav>
 	</header>
 	<main>
-		<div><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
+		<div class="info"><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
 		<form method="post" action="reservation_vac_2.php">
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
