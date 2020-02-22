@@ -46,7 +46,7 @@ include '..\functions.php';
 				 	<option value="pension_complete">pension complète</option>
 				 </select></p>
 				<p class="form">
-					Vacances : : <select name="date_vacances">
+					Vacances : <select name="date_vacances">
 					<?php
 					try{
 						$cnx=Connection ($_SESSION['servername'],$_SESSION['user_db'], $_SESSION['password_db'], $_SESSION['dbname']);
