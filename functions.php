@@ -75,8 +75,10 @@ function affiche_vacances($cnx){
 	return $pdoreq;
 }
 
-function affiche_date_vacances($cnx, $vacances, $nb_semaine){
-
-	$sql="SELECT";
+function affiche_date_vacances($cnx, $vacances){
+	$sql="SELECT date_debut, date_fin FROM date_vacances WHERE nom='$vacances'";
+	$pdoreq=$cnx->query($sql);
+	return $pdoreq;
 }
+
 ?>

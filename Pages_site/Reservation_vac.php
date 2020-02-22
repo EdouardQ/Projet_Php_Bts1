@@ -44,9 +44,8 @@ include '..\functions.php';
 				 	<option value="aucune">Aucune</option>
 				 	<option value="demi_pension">demi-pension</option>
 				 	<option value="pension_complete">pension complète</option>
-				 </select></p>
-				<p class="form">
-					Vacances : <select name="date_vacances">
+				 </select>
+				<span class="form">Vacances : <select name="nom_vacances">
 					<?php
 					try{
 						$cnx=Connection ($_SESSION['servername'],$_SESSION['user_db'], $_SESSION['password_db'], $_SESSION['dbname']);
@@ -61,10 +60,9 @@ include '..\functions.php';
 						die();
 					}
 					?>
-				</select>
-				<span class="form">	Nombre de semaine(s) :</span><input type="number" name="nb_semaine" min=1 style=" width : 40px"></p>
-				<div class="center"><input type="submit" name="Valider" value="Valider">
-      			<input type="reset" name="Reinitialiser" value="Reinitialiser"></div>
+				</select></p>
+				<input id="valider" type="submit" name="Valider" value="Valider">
+      			<input type="reset" name="Reinitialiser" value="Reinitialiser">
 			</fieldset>
 		</form>
 		<?php
