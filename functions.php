@@ -62,7 +62,7 @@ function creer_compte($cnx, $nom, $prenom, $email, $mdp, $telephone, $entreprise
 }
 
 function affiche_vacances($cnx){
-	$sql="SELECT nom FROM date_vacances where date_debut>=now()";
+	$sql="SELECT DISTINCT nom FROM date_vacances where date_debut>=now()";
 	$pdoreq=$cnx->query($sql);
 	return $pdoreq;
 }
