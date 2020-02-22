@@ -49,7 +49,10 @@ if ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
 					try{
 						$cnx=Connection ($_SESSION['servername'],$_SESSION['user_db'], $_SESSION['password_db'], $_SESSION['dbname']);
 						$pdoreq=affiche_date_vacances($cnx,$_SESSION['nom_vacances']);
-
+						/*J'utilise ici une boucle foreach pour classer toutes
+						les informations que je souhaite utiliser dans un tableau pour ensuite les extraire 
+						avec 2 bouble for car l'utilisation de 2 boucles foreach dans une meme page ne fonctionne pas
+						et annule les actions de la seconde boucle foreach.*/
 						$table_date=[];
 						foreach ($pdoreq as $vacances_date) { //$vacances_date[0] = debut / $vacances_date[1] = fin
 							$table_date[]=$vacances_date[0];
