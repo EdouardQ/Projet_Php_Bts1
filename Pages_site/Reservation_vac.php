@@ -61,8 +61,8 @@ include '..\functions.php';
 					}
 					?>
 				</select></p>
-				<input id="valider" type="submit" name="Valider" value="Valider">
-      			<input type="reset" name="Reinitialiser" value="Reinitialiser">
+				<div class="center"><input id="valider" type="submit" name="Valider" value="Valider">
+      			<input type="reset" name="Reinitialiser" value="Reinitialiser"></div>
 			</fieldset>
 		</form>
 		<?php
