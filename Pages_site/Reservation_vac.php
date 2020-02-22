@@ -63,8 +63,8 @@ include '..\functions.php';
 					?>
 				</select>
 				<span class="form">	Nombre de semaine(s) :</span><input type="number" name="nb_semaine" min=1 style=" width : 40px"></p>
-				<input id="valider" type="submit" name="Valider" value="Valider">
-      			<input type="reset" name="Reinitialiser" value="Reinitialiser">
+				<div class="center"><input type="submit" name="Valider" value="Valider">
+      			<input type="reset" name="Reinitialiser" value="Reinitialiser"></div>
 			</fieldset>
 		</form>
 		<?php
