@@ -128,8 +128,10 @@ div.info{
 	text-align: center;
 	color: white;
 	background-color: #FDA12F;
-	border-radius: 4%;
 	font-size: 120%;
+	margin-left: 10%;
+	margin-right:10%;
+	padding-bottom: 2%;
 }
 p.texte{
 	padding-left: 5%;
@@ -159,6 +161,9 @@ footer{
 	padding-bottom: 0.5%;
 }
 footer p{
+	margin-right: 25%;
+	margin-left: 25%;
+	background-color: #FFB55A;
 	font-style: italic;
 	font-size: 0.8em;
 	text-align: center;
