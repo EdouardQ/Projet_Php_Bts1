@@ -53,6 +53,9 @@ h2{
 	color: white;
 	background-color: #FDA12F;
 }
+h3{
+
+}
 div.soust{
 	font-size: 115%;
 	font-weight: bold;
@@ -122,9 +125,12 @@ nav ul li ul li a{
 	left: 84%;
 	background-color: white;
 }
-a {
-   pointer-events: auto !important;  
-   cursor: pointer !important;
+div.info{
+	text-align: center;
+	color: white;
+	background-color: #FDA12F;
+	border-radius: 4%;
+	font-size: 120%;
 }
 p.texte{
 	padding-left: 5%;
@@ -140,10 +146,13 @@ span.form{
 }
 #meme{
 	text-decoration: none;
-	color: black;
+	color: white;
 }
 #courage{
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
+}
+#info{
+	color: #FDA12F;
 }
