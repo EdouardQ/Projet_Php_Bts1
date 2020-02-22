@@ -27,15 +27,15 @@ include '..\functions.php';
 			<li><a href=".\Accueil.php">Accueil</a></li>
 			<li>Reservation
 			<ul>
-				<li><a href=".\reservation_vac.php">Vacances</a></li>
-				<li><a href=".\reservation_pro.php">Professionelle</a></li>
+				<li><a href=".\Reservation_vac.php">Vacances</a></li>
+				<li><a href=".\Reservation_pro.php">Professionelle</a></li>
 				</ul></li>
 			<li><a href=".\Mon_compte.php">Mon compte</a></li>
 		</ul></nav>
 	</header>
 	<main>
 		<div class="info"><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
-		<form method="post" action="reservation_vac_2.php" autocomplete="off">
+		<form method="post" action="Reservation_vac_2.php" autocomplete="off">
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
 				<p class="form">Nombre d'adulte(s) : <input type="number" name="nb_adulte" min=0 style=" width : 40px">

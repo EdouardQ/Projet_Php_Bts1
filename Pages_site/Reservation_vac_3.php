@@ -1,15 +1,8 @@
 <?php
 session_start();
 include '..\functions.php';
-if ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
-	$_SESSION['nb_adulte']=$_POST['nb_adulte'];
-	$_SESSION['nb_enfant']=$_POST['nb_enfant'];
-	$_SESSION['restauration']=$_POST['restauration'];
-	$_SESSION['nom_vacances']=$_POST['nom_vacances'];
-}else{
-	$_SESSION['champ_vide']=1;
-	header('Location: ./Reservation_vac.php');
-}
+$_SESSION['date_debut_sejour']=$_POST['date_debut_sejour'];
+$_SESSION['date_fin_sejour']=$_POST['date_fin_sejour'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,15 +26,15 @@ if ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
 			<li><a href=".\Accueil.php">Accueil</a></li>
 			<li>Reservation
 			<ul>
-				<li><a href=".\Reservation_vac.php">Vacances</a></li>
-				<li><a href=".\Reservation_pro.php">Professionelle</a></li>
+				<li><a href=".\reservation_vac.php">Vacances</a></li>
+				<li><a href=".\reservation_pro.php">Professionelle</a></li>
 				</ul></li>
 			<li><a href=".\Mon_compte.php">Mon compte</a></li>
 		</ul></nav>
 	</header>
 	<main>
 		<div><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
-		<form method="post" action="Reservation_vac_3.php">
+		<form method="post" action="reservation_vac_3.php">
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
 				<p class="form">
