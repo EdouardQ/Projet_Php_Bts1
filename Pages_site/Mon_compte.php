@@ -47,5 +47,8 @@ session_start();
 
 	<a href=".\creer_compte.php">Créer un compte</a>
 </main>
+<footer>
+		<p>Bourgogne Franche-Comté Tourisme - Montagnes du Jura - Parc naturel régional du Haut-Jura - Jura Tourisme - Léman sans frontière<br>Village plaisir</p>
+	</footer>
 </body>
 </html>

@@ -86,5 +86,8 @@ session_start();
 		<p class="texte">Pour les participants aux colloques, le centre peut proposer des randonnées encadrées par des
 		professionnels.</p>
 	</main>
+	<footer>
+		<p>Bourgogne Franche-Comté Tourisme - Montagnes du Jura - Parc naturel régional du Haut-Jura - Jura Tourisme - Léman sans frontière<br>Village plaisir</p>
+	</footer>
 </body>
 </html>
