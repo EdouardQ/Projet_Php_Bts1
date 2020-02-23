@@ -62,12 +62,6 @@ if ((!isset($_SESSION['date_debut_sejour']) && !isset($_SESSION['date_fin_sejour
 						}
 						$table_nb_logements=array_count_values($pdoreq_temp);
 
-						/*
-						foreach ($table_nb_logements as $key => $value) {
-							echo $key."->".$value."<br>";
-						}
-						*/
-
 						$i=0;
 						foreach ($table_nb_logements as $key => $value){ 
 							echo "$key : <input type='number' name='$table_valeur[$i]' max='$value' min='0' placeholder='0' style=' width : 30px'>";

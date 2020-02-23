@@ -3,11 +3,16 @@ session_start();
 include '..\functions.php';
 setlocale(LC_TIME, "fr_FR");
 
-if (isset($_POST['nb_personnes']) && isset($_POST['date_debut_sejour']) && isset($_POST['date_fin_sejour'])){
-	$_SESSION['nb_personnes']=$_POST['nb_personnes'];
-	$_SESSION['restauration']=$_POST['restauration'];
-	$_SESSION['date_debut_sejour']=$_POST['date_debut_sejour'];
-	$_SESSION['date_fin_sejour']=$_POST['date_fin_sejour'];
+if (!empty($_POST['nb_personnes'])){
+	if (strtotime($_POST['date_debut_sejour']) < strtotime($_POST['date_fin_sejour'])){
+		$_SESSION['nb_personnes']=$_POST['nb_personnes'];
+		$_SESSION['restauration']=$_POST['restauration'];
+		$_SESSION['date_debut_sejour']=$_POST['date_debut_sejour'];
+		$_SESSION['date_fin_sejour']=$_POST['date_fin_sejour'];
+	}else{
+		$_SESSION['erreur_date']=1;
+		header('Location: ./Reservation_pro.php');
+	}	
 }else{
 	$_SESSION['champ_vide']=1;
 	header('Location: ./Reservation_pro.php');
@@ -45,17 +50,9 @@ if (isset($_POST['nb_personnes']) && isset($_POST['date_debut_sejour']) && isset
 		<div class="info"><h3>Information :</h3>Le materiel audio et video pourra être demandé à <a href=".\Courage.php" target="blank" id="meme">l'accueil</a>.<br>Les reservations professionnelles ne sont pas disponible en période de vacances scolaires.</div>
 		<form method="post" action="Reservation_pro_3.php" autocomplete="off">
 			<fieldset id="cadre">
-				<legend><h3>Reservation professionnelle</h3></legend>
+				<legend><h3>Reservation professionnelle suite</h3></legend>
 				<div class="center">
-					Nombre de personnes : <input type="number" name="nb_personnes" min=1 style=" width : 40px">
-				<span class="form">Restauration : <select name="restauration">
-				 	<option value="aucune">Aucune</option>
-				 	<option value="demi_pension">demi-pension</option>
-				 	<option value="pension_complete">pension complète</option>
-				 </select></span><br><br>
-				 <div class="centrer">
-				 	Date de début : <input type="date" name="date_debut_sejour">
-				 	<span class="form">Date de fin : <input type="date" name="date_fin_sejour"></span>
+					
 				</div><br>
 				<div class="center"><input type="submit" name="suite" value="Suite">
       			<input type="reset" name="Reinitialiser" value="Reinitialiser"></div>

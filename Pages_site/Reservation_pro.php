@@ -55,6 +55,7 @@ if (!isset($_SESSION['id_user'])){
 		</form>
 		<?php
 			$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
+			$_SESSION['erreur_date']=erreur_date($_SESSION['erreur_date']);
 		?>
 	</main>
 	<footer>
