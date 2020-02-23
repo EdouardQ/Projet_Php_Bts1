@@ -42,7 +42,7 @@ include '..\functions.php';
 			<legend>Se connecter</legend>
 			<div class="center"><p class="conn"><span class="con">e-mail : <input type="email" name="email"></span>
 			<span class="con">Mot de passe : <input type="password" name="mdp"></span></p></div>
-		</fieldset><br>
+		</fieldset>
 		<div class="center"><input type="submit" name="Connexion" id="connexion">
 		<input type="reset" name="Effacer" id="effacer"></div>
 	</form>
