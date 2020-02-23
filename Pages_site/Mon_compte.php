@@ -38,18 +38,17 @@ include '..\functions.php';
 	}?>
 
 	<form method="post" id="identification" action=".\connexion.php" autocomplete="off">
-		<fieldset>
-			<p>e-mail : <input type="email" name="email"></p>
-			<p>Mot de passe : <input type="password" name="mdp"></p>
-		</fieldset>
-		<input type="submit" name="Connexion" id="connexion">
-		<input type="reset" name="Effacer" id="effacer">
+		<fieldset class="conn">
+			<div class="center"><p class="conn"><span class="con">e-mail : <input type="email" name="email"></span>
+			<span class="con">Mot de passe : <input type="password" name="mdp"></span></p></div>
+		</fieldset><br>
+		<div class="center"><input type="submit" name="Connexion" id="connexion">
+		<input type="reset" name="Effacer" id="effacer"></div>
 	</form>
 	<?php
 		$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
 	?>
-
-	<a href=".\creer_compte.php">Créer un compte</a>
+	<div class="center"><a href=".\creer_compte.php" id="deco">Créer un compte</a></div>
 </main>
 <footer>
 		<p>Bourgogne Franche-Comté Tourisme - Montagnes du Jura - Parc naturel régional du Haut-Jura - Jura Tourisme - Léman sans frontière<br>Village plaisir</p>
