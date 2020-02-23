@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['reservation_faite']=1
 ?>
 <!DOCTYPE html>
 <html>
