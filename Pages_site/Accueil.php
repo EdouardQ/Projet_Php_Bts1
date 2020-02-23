@@ -1,5 +1,7 @@
 <?php
 session_start();
+$_SESSION['champ_vide']=0;
+$_SESSION['erreur_date']=0;
 ?>
 <!DOCTYPE html>
 <html>

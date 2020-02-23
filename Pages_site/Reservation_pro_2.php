@@ -4,10 +4,10 @@ include '..\functions.php';
 setlocale(LC_TIME, "fr_FR");
 
 if (isset($_POST['nb_personnes']) && isset($_POST['date_debut_sejour']) && isset($_POST['date_fin_sejour'])){
-	$_SESSION=['nb_personnes']=$_POST['nb_personnes'];
-	$_SESSION=['restauration']=$_POST['restauration'];
-	$_SESSION=['date_debut_sejour']=$_POST['date_debut_sejour'];
-	$_SESSION=['date_fin_sejour']=$_POST['date_fin_sejour'];
+	$_SESSION['nb_personnes']=$_POST['nb_personnes'];
+	$_SESSION['restauration']=$_POST['restauration'];
+	$_SESSION['date_debut_sejour']=$_POST['date_debut_sejour'];
+	$_SESSION['date_fin_sejour']=$_POST['date_fin_sejour'];
 }else{
 	$_SESSION['champ_vide']=1;
 	header('Location: ./Reservation_pro.php');

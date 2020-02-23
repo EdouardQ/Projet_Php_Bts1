@@ -1,7 +1,8 @@
 <?php
 session_start();
 include '..\functions.php';
-if ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
+if ($_SESSION['erreur_date']==1) {
+}elseif ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
 	$_SESSION['nb_adulte']=$_POST['nb_adulte'];
 	$_SESSION['nb_enfant']=$_POST['nb_enfant'];
 	$_SESSION['nb_personnes']=$_SESSION['nb_adulte']+$_SESSION['nb_enfant'];
@@ -77,6 +78,9 @@ if ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
 				<br><div class="center"><input type="submit" name="suite" value="Suite"></div>
 			</fieldset>
 		</form>
+		<?php
+		$_SESSION['erreur_date']=erreur_date($_SESSION['erreur_date']);
+		?>
 	</main>
 	<footer>
 	<p>Bourgogne Franche-Comté Tourisme - Montagnes du Jura - Parc naturel régional du Haut-Jura - Jura Tourisme - Léman sans frontière<br>Village plaisir</p>

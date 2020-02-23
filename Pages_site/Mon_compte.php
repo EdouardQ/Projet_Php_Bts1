@@ -1,7 +1,11 @@
 <?php
 session_start();
 include '..\functions.php';
+if (isset($_SESSION['id_user'])){
+	header('Location: .\Mes_infos.php');
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,12 +15,6 @@ include '..\functions.php';
 </head>
 <body>
 	<header>
-		<?php
-		$lien_deco='';
-		if (isset($_SESSION['id_user'])){
-			echo "<div id='hello'>Bonjour ".$_SESSION['nom']." ".$_SESSION['prenom']." | <a href='.\deconnexion.php' id='deco'>déconnexion</a></div>";
-		}
-		?>
 		<div id="banner">
 		<a href=".\accueil.php"><img id="logo" src="..\images\Logo-les-rousses.png" alt="Logo Les Rousses" title="Accueil"></a>
 		<img id="background_header" src="..\images\jura_banner.jpg" alt="Le jura" title="Le jura"></div>
@@ -32,11 +30,6 @@ include '..\functions.php';
 		</ul></nav>
 	</header>
 	<main>
-	<?php
-	if (isset($_SESSION['id_user'])){
-		header('Location: .\Mes_infos.php');
-	}?>
-
 	<form method="post" action=".\connexion.php" autocomplete="off">
 		<fieldset class="conn">
 			<legend>Se connecter</legend>

@@ -1,10 +1,19 @@
 <?php
 session_start();
 include '..\functions.php';
-/*foreach ($_POST as $key => $value) {
-	echo $key."->".$value."<br>";
-}*/
+
 if (isset($_POST['modifier'])) {
+	unset($_SESSION['nb_adulte']);
+	unset($_SESSION['nb_enfant']);
+	unset($_SESSION['nb_personnes']);
+	unset($_SESSION['restauration']);
+	unset($_SESSION['date_debut_sejour']);
+	unset($_SESSION['date_fin_sejour']);
+	unset($_SESSION['2c2l']);
+	unset($_SESSION['1c1ld']);
+	unset($_SESSION['1c3l']);
+	unset($_SESSION['1c4l']);
+	unset($_SESSION['1cmr']);
 	header('Location: ./Reservation_vac.php');
 }else{
 

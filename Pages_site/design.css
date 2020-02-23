@@ -186,11 +186,12 @@ footer p, #PS{
 	position: static;
 	width: 100%;
 }
-#champ_vide, #logement_excessif{
+#erreur_form, #logement_excessif{
 	font-family: arial;
 	font-weight: bold;
 	color: red;
 	font-size: 1em;
+	text-align: center;
 }
 #tab_validation, #tab_validation td{
 	border-style: groove;

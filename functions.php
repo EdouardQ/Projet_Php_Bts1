@@ -58,10 +58,18 @@ function test_email($cnx, $email){
 
 function champ_vide($bool_champ_vide){
 	if ($bool_champ_vide==1){
-			echo "<p id='champ_vide'>Champ(s) vide(s)</p>";
+			echo "<p id='erreur_form'>Champ(s) vide(s)</p>";
 		}
 		$bool_champ_vide=0;
 		return $bool_champ_vide;
+}
+
+function erreur_date($bool_erreur_date){
+	if ($bool_erreur_date==1){
+			echo "<p id='erreur_form'>Erreur date</p>";
+		}
+		$bool_erreur_date=0;
+		return $bool_erreur_date;
 }
 
 function creer_compte($cnx, $nom, $prenom, $email, $mdp, $telephone, $entreprise){
@@ -252,4 +260,18 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 		}
 	}
 }
+
+function verif_date_hors_vac ($cnx, $date_debut_sejour, $date_fin_sejour){
+	$sql="SELECT count(id_vacances) from date_vacances WHERE id_vacances in (
+SELECT id_vacances from date_vacances where date_debut_sejour BETWEEN STR_TO_DATE('19,10,2019','%d,%m,%Y') AND STR_TO_DATE('28,5,2020','%d,%m,%Y'))
+or id_vacances in (
+SELECT id_vacances from date_vacances where date_fin_sejour BETWEEN STR_TO_DATE('21,5,2020','%d,%m,%Y') AND STR_TO_DATE('28,5,2020','%d,%m,%Y'))
+or id_vacances in (
+SELECT id_vacances from date_vacances where date_debut_sejour < STR_TO_DATE('19,10,2019','%d,%m,%Y') AND date_fin_sejour > STR_TO_DATE('25,5,2020','%d,%m,%Y'))";
+
+	$pdoreq=$cnx->query($sql);
+
+	return $pdoreq;
+}
+
 ?>
