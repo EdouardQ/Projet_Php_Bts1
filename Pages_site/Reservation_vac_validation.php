@@ -102,6 +102,7 @@ if ($_SESSION['logement_excessif']!=1){
 			</div>
 		</fieldset>
 		<form method="post" action="reservation_vac_end.php">
+			<br>
 			<div class="center">
 				<input type="submit" name="valider" value="Valider">
 				<input type="submit" name="modifier" value="Modifier">

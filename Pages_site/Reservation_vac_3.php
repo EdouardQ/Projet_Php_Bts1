@@ -81,7 +81,7 @@ setlocale(LC_TIME, "fr_FR");
 			</fieldset>
 			<?php
 				$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
-				if (isset($_SESSION['logement_excessif'])){
+				if (isset($_SESSION['logement_excessif']) && $_SESSION['logement_excessif']!=1){
 					echo $_SESSION['logement_excessif'];
 				}
 			?>

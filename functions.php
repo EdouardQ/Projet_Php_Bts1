@@ -138,7 +138,7 @@ return $pdoreq;
 }
 
 
-function verif_reservation_excessive($nb_personnes,$nb_2c2l, $nb_1c1ld, $nb_1c3l, $nb_1c4l, $nb_1cmr){
+function verif_reservation_excessive($nb_personnes, $nb_2c2l, $nb_1c1ld, $nb_1c3l, $nb_1c4l, $nb_1cmr){
 	$places_reservees_min=$nb_2c2l*2+$nb_1c1ld*1+$nb_1c3l*2+$nb_1c4l*2+$nb_1cmr;
 	$places_reservees_max=$nb_2c2l*4+$nb_1c1ld*2+$nb_1c3l*3+$nb_1c4l*4+$nb_1cmr;
 	if ($nb_personnes<$places_reservees_min){
@@ -148,5 +148,11 @@ function verif_reservation_excessive($nb_personnes,$nb_2c2l, $nb_1c1ld, $nb_1c3l
 		return "<p id='logement_excessif'>Il n'y a pas assez de logements selectionnés pour le nombre de personnes.</p>";
 	}
 	return 1;
+}
+
+function validation_reserv($cnx, $nb_adulte, $nb_enfant, $restauration, $date_debut_sejour, $date_fin_sejour, $nb_2c2l, $nb_1c1ld, $nb_1c3l, $nb_1c4l, $nb_1cmr){
+
+
+
 }
 ?>
