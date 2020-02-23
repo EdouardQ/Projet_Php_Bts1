@@ -156,7 +156,7 @@ footer{
 	width: 100%;
 	padding-bottom: 0.5%;
 }
-footer p{
+footer p, #PS{
 	margin-right: 25%;
 	margin-left: 25%;
 	font-style: italic;

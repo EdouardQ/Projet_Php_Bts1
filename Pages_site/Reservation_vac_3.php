@@ -3,6 +3,7 @@ session_start();
 include '..\functions.php';
 $_SESSION['date_debut_sejour']=$_POST['date_debut_sejour'];
 $_SESSION['date_fin_sejour']=$_POST['date_fin_sejour'];
+setlocale(LC_TIME, "fr_FR");
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,12 +35,14 @@ $_SESSION['date_fin_sejour']=$_POST['date_fin_sejour'];
 	</header>
 	<main>
 		<div><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
-		<form method="post" action="reservation_vac_3.php">
+		<form method="post" action="Reservation_vac_4.php">
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
-				<p class="form">
+				<div class='center'>
 					<?php
-					setlocale(LC_TIME, "fr_FR");
+
+					echo "<h3>Veuillez choisir votre configuration de logement(s) pour votre séjour du ".utf8_encode(strftime("%A %d %B %G", strtotime($_SESSION['date_debut_sejour'])))." au ".utf8_encode(strftime("%A %d %B %G", strtotime($_SESSION['date_fin_sejour'])))."<br> pour ".$_SESSION['nb_personnes']." personne(s)</h3>";
+					
 					try{
 						$cnx=Connection ($_SESSION['servername'],$_SESSION['user_db'], $_SESSION['password_db'], $_SESSION['dbname']);
 
@@ -57,7 +60,12 @@ $_SESSION['date_fin_sejour']=$_POST['date_fin_sejour'];
 						}
 						
 						for ($i=0; $i < count($table_nb_logements); $i++) { 
-							echo $table_nb_logements[$i]."<br>";
+							echo "$table_type[$i] : <input type='number' name='$table_type[$i]' max='$table_nb_logements[$i]' min='0' placeholder='0' style=' width : 30px'>";
+							if($i==2){
+								echo "<br>";
+							}else{
+								echo "<span class='form'></span>";
+							} 
 						}
 					}
 					catch(PDOException $event) {
@@ -65,9 +73,13 @@ $_SESSION['date_fin_sejour']=$_POST['date_fin_sejour'];
 						die();
 					}
 					?>
-				</p>
+				</div><br>
 				<div class="center"><input id="valider" type="submit" name="valider" value="Valider"></div>
 			</fieldset>
+			<?php
+				$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
+			?>
+			<p id="PS"> Vous pourrez modifier les informatiosn liées à votre réservation de séjour après cette page</p>
 		</form>
 	</main>
 	<footer>
