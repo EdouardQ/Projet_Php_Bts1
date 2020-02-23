@@ -167,9 +167,16 @@ footer p, #PS{
 	position: static;
 	width: 100%;
 }
-#champ_vide{
+#champ_vide, #logement_excessif{
 	font-family: arial;
 	font-weight: bold;
 	color: red;
 	font-size: 1em;
+}
+#tab_validation, #tab_validation td{
+	border-style: groove;
+	border-color: #FDA12F;
+	border-collapse:collapse;
+	margin-right: auto;
+	margin-left: auto;
 }

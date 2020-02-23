@@ -2,29 +2,45 @@
 session_start();
 include '..\functions.php';
 $verif_champ_vide=1;
+setlocale(LC_TIME, "fr_FR");
 
 if (!empty($_POST['2c2l'])){
 	$_SESSION['2c2l']=$_POST['2c2l'];
 	$verif_champ_vide=0;
+}else{
+	$_SESSION['2c2l']=0;
 }
 if (!empty($_POST['1c1ld'])){
 	$_SESSION['1c1ld']=$_POST['1c1ld'];
 	$verif_champ_vide=0;
+}else{
+	$_SESSION['1c1ld']=0;
 }
 if (!empty($_POST['1c3l'])){
 	$_SESSION['1c3l']=$_POST['1c3l'];
 	$verif_champ_vide=0;
+}else{
+	$_SESSION['1c3l']=0;
 }
 if (!empty($_POST['1c4l'])){
 	$_SESSION['1c4l']=$_POST['1c4l'];
 	$verif_champ_vide=0;
+}else{
+	$_SESSION['1c4l']=0;
 }
 if (!empty($_POST['1cmr'])){
 	$_SESSION['1cmr']=$_POST['1cmr'];
 	$verif_champ_vide=0;
+}else{
+	$_SESSION['1cmr']=0;
 }
 if ($verif_champ_vide==1){
 	$_SESSION['champ_vide']=1;
+	header('Location: ./Reservation_vac_3.php');
+}
+
+$_SESSION['logement_excessif']=verif_reservation_excessive($_SESSION['nb_personnes'],$_SESSION['2c2l'], $_SESSION['1c1ld'], $_SESSION['1c3l'], $_SESSION['1c4l'], $_SESSION['1cmr']);
+if ($_SESSION['logement_excessif']!=1){
 	header('Location: ./Reservation_vac_3.php');
 }
 
@@ -59,40 +75,37 @@ if ($verif_champ_vide==1){
 	</header>
 	<main>
 		<div><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
-		<form method="post" action="Reservation_vac_envoie.php">
-			<fieldset id="cadre">
-				<legend><h3>Reservation de vacances</h3></legend>
-					<?php
-					setlocale(LC_TIME, "fr_FR");
-					try{
-						$cnx=Connection ($_SESSION['servername'],$_SESSION['user_db'], $_SESSION['password_db'], $_SESSION['dbname']);
-						$pdoreq=affiche_date_vacances($cnx,$_SESSION['nom_vacances']);
-						/*J'utilise ici une boucle foreach pour classer toutes
-						les informations que je souhaite utiliser dans un tableau pour ensuite les extraire 
-						avec 2 bouble for car l'utilisation de 2 boucles foreach dans une meme page ne fonctionne pas
-						et annule les actions de la seconde boucle foreach.*/
-						$table_date=[];
-						foreach ($pdoreq as $vacances_date) { //$vacances_date[0] = debut / $vacances_date[1] = fin
-							$table_date[]=$vacances_date[0];
-							$table_date[]=$vacances_date[1];
-						}
-						echo "<div class='center'>Date de début : <select name='date_debut_sejour'>";
-						for ($i=0; $i < count($table_date); $i+=2) { 
-							echo "<option value='$table_date[$i]'>".utf8_encode(strftime("%A %d %B %G", strtotime($table_date[$i])))."</option>";
-						}
-						echo "</select><span class='form'>Date de fin : <select name='date_fin_sejour'>";
-						for ($i=1; $i < count($table_date); $i+=2) { 
-							echo "<option value='$table_date[$i]'>".utf8_encode(strftime("%A %d %B %G", strtotime($table_date[$i])))."</option>";
-						}
-						echo "</select></div>";
+		<fieldset id="cadre">
+			<legend><h3>Validation reservation de vacances</h3></legend>
+			<div class='center'>
+				<?php
+					echo "<p><b>Date du début du séjour : </b>".utf8_encode(strftime('%A %d %B %G', strtotime($_SESSION['date_debut_sejour'])))."<span class='form'></span><b>Date de fin du séjour : </b>".utf8_encode(strftime('%A %d %B %G', strtotime($_SESSION['date_fin_sejour'])))."</p>";
+
+					echo "<p>Pour ".$_SESSION['nb_adulte']." adulte(s) et ".$_SESSION['nb_enfant']." enfant(s) ";
+
+					if ($_SESSION['restauration']=="aucune") {
+						echo "sans pension, ";
+					}elseif ($_SESSION['restauration']=="demi_pension") {
+						echo "avec demi-pension, ";
+					}else{
+						echo "avec pension complète, ";
 					}
-					catch(PDOException $event) {
-						echo "Erreur : ".$event -> getMessage()."<br/>";
-						die();
+
+					echo "réparti(s) dans 	:<br><table id='tab_validation'><tr>";
+
+					$table_type=['logement avec 2 chambre a 2 lits', 'logement avec 1 chambre a 1 lit double','logement avec 1 chambre a 3 lits','logement avec 1 chambre a 4 lits','logement avec 1 chambre mobilite reduite'];
+					for ($i=0; $i < count($table_type); $i++) { 
+						echo "<td>".$table_type[$i]."</td>";
 					}
-					?>
-				<br><div class="center"><input id="valider" type="submit" name="valider" value="Valider"></div>
-			</fieldset>
+					echo "</tr><tr><td>".$_SESSION['2c2l']."</td><td>".$_SESSION['1c1ld']."</td><td>".$_SESSION['1c3l']."</td><td>".$_SESSION['1c4l']."</td><td>".$_SESSION['1cmr']."</td></tr></table>";
+				?>
+			</div>
+		</fieldset>
+		<form method="post" action="reservation_vac_end.php">
+			<div class="center">
+				<input type="submit" name="valider" value="Valider">
+				<input type="submit" name="modifier" value="Modifier">
+			</div>
 		</form>
 	</main>
 	<footer>

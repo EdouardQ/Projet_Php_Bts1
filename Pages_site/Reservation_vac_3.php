@@ -77,10 +77,13 @@ setlocale(LC_TIME, "fr_FR");
 					}
 					?>
 				</div><br>
-				<div class="center"><input id="valider" type="submit" name="valider" value="Valider"></div>
+				<div class="center"><input type="submit" name="suite" value="Suite"></div>
 			</fieldset>
 			<?php
 				$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
+				if (isset($_SESSION['logement_excessif'])){
+					echo $_SESSION['logement_excessif'];
+				}
 			?>
 			<p id="PS"> Vous pourrez modifier les informations liées à votre réservation de séjour après cette page</p>
 		</form>

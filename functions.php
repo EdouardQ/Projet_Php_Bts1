@@ -137,4 +137,16 @@ $pdoreq=$cnx->query($sql);
 return $pdoreq;
 }
 
+
+function verif_reservation_excessive($nb_personnes,$nb_2c2l, $nb_1c1ld, $nb_1c3l, $nb_1c4l, $nb_1cmr){
+	$places_reservees_min=$nb_2c2l*2+$nb_1c1ld*1+$nb_1c3l*2+$nb_1c4l*2+$nb_1cmr;
+	$places_reservees_max=$nb_2c2l*4+$nb_1c1ld*2+$nb_1c3l*3+$nb_1c4l*4+$nb_1cmr;
+	if ($nb_personnes<$places_reservees_min){
+		return "<p id='logement_excessif'>Trop de logements ont été selectionné.</p>";
+	}
+	if ($nb_personnes>$places_reservees_max){
+		return "<p id='logement_excessif'>Il n'y a pas assez de logements selectionnés pour le nombre de personnes.</p>";
+	}
+	return 1;
+}
 ?>
