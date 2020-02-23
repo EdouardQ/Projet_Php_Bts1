@@ -54,18 +54,23 @@ setlocale(LC_TIME, "fr_FR");
 						
 						$pdoreq=affiche_nb_logements_libres_par_type($cnx, $_SESSION['date_debut_sejour'], $_SESSION['date_debut_sejour']);
 
-						foreach ($pdoreq as $nb_logements => $value) {
-							$table_nb_logements[]=$value[0];
-							$table_nb_logements[]=$value[1];
-							$table_nb_logements[]=$value[2];
-							$table_nb_logements[]=$value[3];
-							$table_nb_logements[]=$value[4];
+						foreach ($pdoreq as $value) {
+							$pdoreq_temp[]=$value[1];
 						}
-						
-						for ($i=0; $i < count($table_nb_logements); $i++) { 
-							echo "$table_type[$i] : <input type='number' name='$table_valeur[$i]' max='$table_nb_logements[$i]' min='0' placeholder='0' style=' width : 30px'>";
+						$table_nb_logements=array_count_values($pdoreq_temp);
+
+						/*
+						foreach ($table_nb_logements as $key => $value) {
+							echo $key."->".$value."<br>";
+						}
+						*/
+
+						$i=0;
+						foreach ($table_nb_logements as $key => $value){ 
+							echo "$key : <input type='number' name='$table_valeur[$i]' max='$value' min='0' placeholder='0' style=' width : 30px'>";
+							$i++;
 							if($i==2){
-								echo "<br>";
+								echo "<br><br>";
 							}else{
 								echo "<span class='form'></span>";
 							} 
