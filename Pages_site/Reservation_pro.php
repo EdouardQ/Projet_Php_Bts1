@@ -35,35 +35,28 @@ if (!isset($_SESSION['id_user'])){
 	</header>
 	<main>
 		<div class="info"><h3>Information :</h3>Le materiel audio et video pourra être demandé à <a href=".\Courage.php" target="blank" id="meme">l'accueil</a>.<br>Les reservations professionnelles ne sont pas disponible en période de vacances scolaires.</div>
-		<form method="post" action="...........">
+		<form method="post" action="Reservation_pro_2.php" autocomplete="off">
 			<fieldset id="cadre">
-				<legend><h3>Reservation professionelle</h3></legend>
-				<div class="center">Nombre de personnes : <input type="number" name="nombre_pers">
-				<span class="form">Type de chambre :</span><select>
-				 	<option value="2c2l">2 chambre a 2 lits</option>
-				 	<option value="1c1ld">1 chambre a 1 lit double</option>
-				 	<option value="1c3l">1 chambre a 3 lits</option>
-				 	<option value="1c4l">1 chambre a 4 lits</option>
-				 	<option value="1cmr">1 chambre mobilite reduite</option>
-				 </select>
-				<span class="form">Restauration :</span><select>
-				 	<option selected="selected" value="aucune">Aucune</option>
+				<legend><h3>Reservation professionnelle</h3></legend>
+				<div class="center">
+					Nombre de personnes : <input type="number" name="nb_personnes" min=1 style=" width : 40px">
+				<span class="form">Restauration : <select name="restauration">
+				 	<option value="aucune">Aucune</option>
 				 	<option value="demi_pension">demi-pension</option>
 				 	<option value="pension_complete">pension complète</option>
-				 </select></div><br>
-				<div class="center">Date de début : <input type="date" name="date_debut_sejour">
-					<span class="form">Date de fin :</span><input type="date" name="date_fin_sejour">
-					<span class="form">Type de salle :</span><select>
-				 		<option value="sc196">Salle de conférence de 196 places</option>
-				 		<option value="sc50">Salle de commission de 50 places</option>
-				 		<option value="sc25">Salle de commission de 25 places</option>
-				 		<option value="sc10">Salle de commission de 10 places</option>
-				 </select></div><br>
-				 <div class="center"><img id="conf" src="..\images\salle.jpg"></div>
-				<div class="center"><input type="submit" name="valider" value="valider">
-      			<input type="reset" name="reinitialiser" value="reinitialiser"></div>
+				 </select></span><br>
+				 <div class="centrer">
+				 	Date de début : <input type="date" name="">
+
+
+				</div><br>
+				<div class="center"><input type="submit" name="suite" value="Suite">
+      			<input type="reset" name="Reinitialiser" value="Reinitialiser"></div>
 			</fieldset>
 		</form>
+		<?php
+		$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
+		?>
 	</main>
 	<footer>
 		<p>Bourgogne Franche-Comté Tourisme - Montagnes du Jura - Parc naturel régional du Haut-Jura - Jura Tourisme - Léman sans frontière<br>Village plaisir</p>
