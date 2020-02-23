@@ -37,8 +37,9 @@ include '..\functions.php';
 		header('Location: .\Mes_infos.php');
 	}?>
 
-	<form method="post" id="identification" action=".\connexion.php" autocomplete="off">
+	<form method="post" action=".\connexion.php" autocomplete="off">
 		<fieldset class="conn">
+			<legend>Se connecter</legend>
 			<div class="center"><p class="conn"><span class="con">e-mail : <input type="email" name="email"></span>
 			<span class="con">Mot de passe : <input type="password" name="mdp"></span></p></div>
 		</fieldset><br>
