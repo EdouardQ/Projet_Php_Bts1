@@ -145,7 +145,7 @@ function verif_reservation_excessive($nb_personnes, $nb_2c2l, $nb_1c1ld, $nb_1c3
 		return "<p id='logement_excessif'>Trop de logements ont été selectionné.</p>";
 	}
 	if ($nb_personnes>$places_reservees_max){
-		return "<p id='logement_excessif'>Il n'y a pas assez de logements selectionnés pour le nombre de personnes.</p>";
+		return "<p id='logement_excessif'>Il n'y a pas assez de logements selectionnés pour le nombre de personnes, ou il n'y plus assez de logement à cette période.</p>";
 	}
 	return 1;
 }
