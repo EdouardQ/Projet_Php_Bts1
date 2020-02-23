@@ -26,15 +26,15 @@ include '..\functions.php';
 		</ul></nav>
 	</header>
 	<main>
-	<p><h3>Information :</h3>Veuillez rentrer vos informations personnelles :</p>
-	<form method="post" id="creation_compte" action=".\creation_compte.php" autocomplete="on">
-		<fieldset>
-			<p>Nom : <input type="text" name="nom"> Prénom : <input type="text" name="prenom"></p>
-			<p>e-mail : <input type="email" name="email"> Mot de passe : <input type="password" name="mdp"></p>
-			<p>Numéro de téléphone : <input type="tel" name="telephone" minlength="10"> Entreprise : <input type="text" name="entreprise"></p>
+	<form method="post" action=".\creation_compte.php" autocomplete="on">
+		<fieldset class="conn">
+			<legend>Création de compte</legend>
+			<div class="center"><p><span class="form">Nom : <input type="text" name="nom"></span><span class="form">Prénom : <input type="text" name="prenom"></span></p>
+			<p><span class="form">e-mail : <input type="email" name="email"></span><span class="form"> Mot de passe : <input type="password" name="mdp"></span></p>
+			<p><span class="form">Numéro de téléphone : <input type="tel" name="telephone" minlength="10"></span><span class="form">Entreprise : <input type="text" name="entreprise"></span></p></div>
+			<div class="center"><input type="submit" name="Envoyer" id="envoyer_creer_compte">
+		<input type="reset" name="Effacer" id="effacer"></div>
 		</fieldset>
-		<input type="submit" name="Envoyer" id="envoyer_creer_compte">
-		<input type="reset" name="Effacer" id="effacer">
 	</form>
 	<?php
 		$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
