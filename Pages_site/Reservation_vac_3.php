@@ -37,7 +37,7 @@ setlocale(LC_TIME, "fr_FR");
 	</header>
 	<main>
 		<div><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
-		<form method="post" action="Reservation_vac_4.php">
+		<form method="post" action="Reservation_vac_validation.php">
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
 				<div class='center'>

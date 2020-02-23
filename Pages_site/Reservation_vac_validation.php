@@ -59,7 +59,7 @@ if ($verif_champ_vide==1){
 	</header>
 	<main>
 		<div><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
-		<form method="post" action="Reservation_vac_3.php">
+		<form method="post" action="Reservation_vac_envoie.php">
 			<fieldset id="cadre">
 				<legend><h3>Reservation de vacances</h3></legend>
 					<?php
