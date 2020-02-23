@@ -120,7 +120,8 @@ nav ul li ul li a{
 #hello{
 	border-style: double;
 	border-color: #36AEE4;
-	margin-left: 5%;
+	margin-left: 4%;
+	margin-right: 0.5%;
 	position: absolute;
 	text-align: right;
 	z-index: 999;
@@ -140,9 +141,22 @@ p.texte{
 	padding-left: 5%;
 	padding-right: 5%;
 }
+p.conn{
+	font-size: 110%;
+}
 span.form{
 	padding-left: 20px;
 	padding-right: 5px;
+}
+span.con{
+	padding-left: 6%;
+	padding-right: 6%;
+}
+fieldset.conn{
+	margin-left: 15%;
+	margin-right: 15%;
+	border-style: double;
+	border-color: #FDA12F;
 }
 #meme{
 	text-decoration: none;
