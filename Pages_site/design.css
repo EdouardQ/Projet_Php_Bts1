@@ -186,3 +186,10 @@ footer p, #PS{
 	margin-right: auto;
 	margin-left: auto;
 }
+#reserv_faite{
+	font-family: arial;
+	font-style: italic;
+	color: #FDA12F;
+	font-size: 2em;
+	text-align: center;
+}

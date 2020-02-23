@@ -175,88 +175,113 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 		$id_sejour=$value[0];
 	}
 
-	$sql="INSERT INTO reservation_sejour (id_sejour, id_user, date_debut_sejour, date_fin_sejour) VALUES ($id_sejour, $id_user, $date_debut_sejour, $date_fin_sejour)";
+	$sql="INSERT INTO reservation_sejour (id_sejour, id_user, date_debut_sejour, date_fin_sejour) VALUES ($id_sejour, $id_user, '$date_debut_sejour', '$date_fin_sejour')";
 	$cnx->exec($sql);
 
 	if ($nb_2c2l>0) {
 		for ($i=0; $i < $nb_2c2l; $i++) { 
-			$sql="INSERT INTO logement_attribue (id_sejour id_logement) VALUES ($id_sejour,
-			SELECT MIN(logement.id_logement) from logement where type='2 chambres a 2 lits' and logement.id_logement in (SELECT logement.id_logement from logement WHERE logement.id_logement not in (
+			$sql="SELECT MIN(logement.id_logement) from logement where type='2 chambres a 2 lits' and logement.id_logement in (SELECT logement.id_logement from logement WHERE logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour BETWEEN $date_debut AND $date_fin)) 
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour')) 
 			and logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_fin_sejour BETWEEN $date_debut AND $date_fin))
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_fin_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour'))
 			and logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour < $date_debut AND reservation_sejour.date_fin_sejour > $date_fin)))
-			 )";
-			 $cnx->exec($sql);
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour')))";
+
+			$pdoreq=$cnx->query($sql);
+			foreach ($pdoreq as $value) {
+				$id_logement=$value[0];
+			}
+
+			$sql="INSERT INTO logement_attribue (id_sejour, id_logement) VALUES ($id_sejour,$id_logement)";
+			$cnx->exec($sql);
 		}
 	}
 	if ($nb_1c1ld>0) {
 		for ($i=0; $i < $nb_1c1ld; $i++) { 
-			$sql="INSERT INTO logement_attribue (id_sejour id_logement) VALUES ($id_sejour,
-			SELECT MIN(logement.id_logement) from logement where type='1 chambre a 1 lit double' and logement.id_logement in (SELECT logement.id_logement from logement WHERE logement.id_logement not in (
+			$sql="SELECT MIN(logement.id_logement) from logement where type='1 chambre a 1 lit double' and logement.id_logement in (SELECT logement.id_logement from logement WHERE logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour BETWEEN $date_debut AND $date_fin)) 
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour')) 
 			and logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_fin_sejour BETWEEN $date_debut AND $date_fin))
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_fin_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour'))
 			and logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour < $date_debut AND reservation_sejour.date_fin_sejour > $date_fin)))
-			 )";
-			 $cnx->exec($sql);
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour')))";
+
+			$pdoreq=$cnx->query($sql);
+			foreach ($pdoreq as $value) {
+				$id_logement=$value[0];
+			}
+
+			$sql="INSERT INTO logement_attribue (id_sejour, id_logement) VALUES ($id_sejour,$id_logement)";
+			$cnx->exec($sql);
 		}
 	}
 	if ($nb_1c3l>0) {
 		for ($i=0; $i < $nb_1c3l; $i++) { 
-			$sql="INSERT INTO logement_attribue (id_sejour id_logement) VALUES ($id_sejour,
-			SELECT MIN(logement.id_logement) from logement where type='1 chambre a 3 lits' and logement.id_logement in (SELECT logement.id_logement from logement WHERE logement.id_logement not in (
+			$sql="SELECT MIN(logement.id_logement) from logement where type='1 chambre a 3 lits' and logement.id_logement in (SELECT logement.id_logement from logement WHERE logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour BETWEEN $date_debut AND $date_fin)) 
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour')) 
 			and logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_fin_sejour BETWEEN $date_debut AND $date_fin))
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_fin_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour'))
 			and logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour < $date_debut AND reservation_sejour.date_fin_sejour > $date_fin)))
-			 )";
-			 $cnx->exec($sql);
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour')))";
+
+			$pdoreq=$cnx->query($sql);
+			foreach ($pdoreq as $value) {
+				$id_logement=$value[0];
+			}
+
+			$sql="INSERT INTO logement_attribue (id_sejour, id_logement) VALUES ($id_sejour,$id_logement)";
+			$cnx->exec($sql);
 		}
 	}
 	if ($nb_1c4l>0) {
 		for ($i=0; $i < $nb_1c4l; $i++) { 
-			$sql="INSERT INTO logement_attribue (id_sejour id_logement) VALUES ($id_sejour,
-			SELECT MIN(logement.id_logement) from logement where type='1 chambre a 4 lits' and logement.id_logement in (SELECT logement.id_logement from logement WHERE logement.id_logement not in (
+			$sql="SELECT MIN(logement.id_logement) from logement where type='1 chambre a 4 lits' and logement.id_logement in (SELECT logement.id_logement from logement WHERE logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour BETWEEN $date_debut AND $date_fin)) 
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour')) 
 			and logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_fin_sejour BETWEEN $date_debut AND $date_fin))
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_fin_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour'))
 			and logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour < $date_debut AND reservation_sejour.date_fin_sejour > $date_fin)))
-			 )";
-			 $cnx->exec($sql);
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour')))";
+
+			$pdoreq=$cnx->query($sql);
+			foreach ($pdoreq as $value) {
+				$id_logement=$value[0];
+			}
+
+			$sql="INSERT INTO logement_attribue (id_sejour, id_logement) VALUES ($id_sejour,$id_logement)";
+			$cnx->exec($sql);
 		}
 	}
 	if ($nb_1cmr>0) {
 		for ($i=0; $i < $nb_1cmr; $i++) { 
-			$sql="INSERT INTO logement_attribue (id_sejour id_logement) VALUES ($id_sejour,
-			SELECT MIN(logement.id_logement) from logement where type='1 chambre pour personne a mobilite reduite
+			$sql="SELECT MIN(logement.id_logement) from logement where type='1 chambre pour personne a mobilite reduite
 ' and logement.id_logement in (SELECT logement.id_logement from logement WHERE logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour BETWEEN $date_debut AND $date_fin)) 
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour')) 
 			and logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_fin_sejour BETWEEN $date_debut AND $date_fin))
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_fin_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour'))
 			and logement.id_logement not in (
 			SELECT logement_attribue.id_logement from logement_attribue inner join reservation_sejour on logement_attribue.id_sejour in (
-			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour < $date_debut AND reservation_sejour.date_fin_sejour > $date_fin)))
-			 )";
-			 $cnx->exec($sql);
+			SELECT reservation_sejour.id_sejour from reservation_sejour where reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour')))";
+
+			$pdoreq=$cnx->query($sql);
+			foreach ($pdoreq as $value) {
+				$id_logement=$value[0];
+			}
+
+			$sql="INSERT INTO logement_attribue (id_sejour, id_logement) VALUES ($id_sejour,$id_logement)";
+			$cnx->exec($sql);
 		}
 	}
 }

@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['reservation_faite']=1
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,6 +19,7 @@ session_start();
 		<div id="banner">
 		<a href=".\accueil.php"><img id="logo" src="..\images\Logo-les-rousses.png" alt="Logo Les Rousses" title="Accueil"></a>
 		<img id="background_header" src="..\images\jura_banner.jpg" alt="Le jura" title="Le jura"></div>
+		
 		<h1>Village Les Rousses</h1>
 		<nav><ul>
 			<li><a href=".\Accueil.php">Accueil</a></li>
@@ -30,6 +32,12 @@ session_start();
 		</ul></nav>
 	</header>
 	<main>
+		<?php
+			if(isset($_SESSION['reservation_faite']) && $_SESSION['reservation_faite']==1){
+				$_SESSION['reservation_faite']=0;
+				echo "<p id='reserv_faite'>Réservation enregistrée, merci.</p>";
+			}
+		?>
 		<h2>Hébergement et restauration</h2>
 		<ul class="pre"><div class="soust">Hébergements disponibles sur le site :</div>
 			<li>40 logements : entrée, douche et wc, 2 chambres à 2 lits avec coin toilette et balcon.</li>
