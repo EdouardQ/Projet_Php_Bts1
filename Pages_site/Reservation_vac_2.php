@@ -4,6 +4,7 @@ include '..\functions.php';
 if ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
 	$_SESSION['nb_adulte']=$_POST['nb_adulte'];
 	$_SESSION['nb_enfant']=$_POST['nb_enfant'];
+	$_SESSION['nb_personnes']=$_SESSION['nb_adulte']+$_SESSION['nb_enfant'];
 	$_SESSION['restauration']=$_POST['restauration'];
 	$_SESSION['nom_vacances']=$_POST['nom_vacances'];
 }else{

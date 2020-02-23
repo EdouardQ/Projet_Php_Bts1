@@ -42,22 +42,23 @@ $_SESSION['date_fin_sejour']=$_POST['date_fin_sejour'];
 					setlocale(LC_TIME, "fr_FR");
 					try{
 						$cnx=Connection ($_SESSION['servername'],$_SESSION['user_db'], $_SESSION['password_db'], $_SESSION['dbname']);
-						$pdoreq=affiche_date_vacances($cnx,$_SESSION['nom_vacances']);
 
-						$table_date=[];
-						foreach ($pdoreq as $vacances_date) { //$vacances_date[0] = debut / $vacances_date[1] = fin
-							$table_date[]=$vacances_date[0];
-							$table_date[]=$vacances_date[1];
+						$table_nb_logements=[];
+						$table_type=['2 chambre a 2 lits', '1 chambre a 1 lit double','1 chambre a 3 lits','1 chambre a 4 lits','1 chambre mobilite reduite'];
+						
+						$pdoreq=affiche_nb_logements_libres_par_type($cnx, $_SESSION['date_debut_sejour'], $_SESSION['date_debut_sejour']);
+
+						foreach ($pdoreq as $nb_logements => $value) {
+							$table_nb_logements[]=$value[0];
+							$table_nb_logements[]=$value[1];
+							$table_nb_logements[]=$value[2];
+							$table_nb_logements[]=$value[3];
+							$table_nb_logements[]=$value[4];
 						}
-						echo "<div class='center'>Date de début : <select name='date_debut_sejour'>";
-						for ($i=0; $i < count($table_date); $i+=2) { 
-							echo "<option value='$table_date[$i]'>".utf8_encode(strftime("%A %d %B %G", strtotime($table_date[$i])))."</option>";
+						
+						for ($i=0; $i < count($table_nb_logements); $i++) { 
+							echo $table_nb_logements[$i]."<br>";
 						}
-						echo "</select><span class='form'>Date de fin : <select name='date_fin_sejour'>";
-						for ($i=1; $i < count($table_date); $i+=2) { 
-							echo "<option value='$table_date[$i]'>".utf8_encode(strftime("%A %d %B %G", strtotime($table_date[$i])))."</option>";
-						}
-						echo "</select></div>";
 					}
 					catch(PDOException $event) {
 						echo "Erreur : ".$event -> getMessage()."<br/>";
