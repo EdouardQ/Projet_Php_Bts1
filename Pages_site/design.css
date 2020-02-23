@@ -118,11 +118,14 @@ nav ul li ul li a{
 }
 
 #hello{
+	border-style: double;
+	border-color: #36AEE4;
+	margin-left: 5%;
 	position: absolute;
 	text-align: right;
 	z-index: 999;
 	left: 84%;
-	background-color: white;
+	background-color: #C5CFFF;
 }
 div.info{
 	text-align: center;
@@ -144,6 +147,9 @@ span.form{
 #meme{
 	text-decoration: none;
 	color: white;
+}
+#deco{
+	text-decoration: none;
 }
 #courage{
 	width: 50%;
