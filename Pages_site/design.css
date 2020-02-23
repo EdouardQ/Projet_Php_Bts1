@@ -120,7 +120,8 @@ nav ul li ul li a{
 #hello{
 	border-style: double;
 	border-color: #36AEE4;
-	margin-left: 5%;
+	margin-left: 4%;
+	margin-right: 0.5%;
 	position: absolute;
 	text-align: right;
 	z-index: 999;

@@ -12,7 +12,7 @@ session_start();
 	<header>
 		<?php
 		if (isset($_SESSION['id_user'])){
-			echo "<div id='hello'>Bonjour ".$_SESSION['nom']." ".$_SESSION['prenom']." | <a href='.\deconnexion.php'>déconnexion</a></div>";
+			echo "<div id='hello'>Bonjour ".$_SESSION['nom']." ".$_SESSION['prenom']." | <a href='.\deconnexion.php' id='deco'>déconnexion</a></div>";
 		}
 		?>
 		<div id="banner">
