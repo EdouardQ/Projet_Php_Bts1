@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '..\functions.php';
 if (!isset($_SESSION['id_user'])){
 		header('Location: .\Mon_compte.php');
 }
@@ -14,7 +15,6 @@ if (!isset($_SESSION['id_user'])){
 <body>
 	<header>
 		<?php
-		$lien_deco='';
 		if (isset($_SESSION['id_user'])){
 			echo "<div id='hello'>Bonjour ".$_SESSION['nom']." ".$_SESSION['prenom']." | <a href='.\deconnexion.php' id='deco'>déconnexion</a></div>";
 		}
@@ -44,18 +44,17 @@ if (!isset($_SESSION['id_user'])){
 				 	<option value="aucune">Aucune</option>
 				 	<option value="demi_pension">demi-pension</option>
 				 	<option value="pension_complete">pension complète</option>
-				 </select></span><br>
+				 </select></span><br><br>
 				 <div class="centrer">
-				 	Date de début : <input type="date" name="">
-
-
+				 	Date de début : <input type="date" name="date_debut_sejour">
+				 	<span class="form">Date de fin : <input type="date" name="date_fin_sejour"></span>
 				</div><br>
 				<div class="center"><input type="submit" name="suite" value="Suite">
       			<input type="reset" name="Reinitialiser" value="Reinitialiser"></div>
 			</fieldset>
 		</form>
 		<?php
-		$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
+			$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
 		?>
 	</main>
 	<footer>
