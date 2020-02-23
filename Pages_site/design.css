@@ -120,13 +120,12 @@ nav ul li ul li a{
 #hello{
 	border-style: double;
 	border-color: #36AEE4;
-	margin-left: 4%;
 	margin-right: 0.5%;
+	right: 0%;
 	position: absolute;
 	text-align: right;
 	z-index: 999;
-	left: 84%;
-	background-color: #C5CFFF;
+	background-color: #a5c3e5;
 }
 div.info{
 	text-align: center;
