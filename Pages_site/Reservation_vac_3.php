@@ -1,8 +1,10 @@
 <?php
 session_start();
 include '..\functions.php';
-$_SESSION['date_debut_sejour']=$_POST['date_debut_sejour'];
-$_SESSION['date_fin_sejour']=$_POST['date_fin_sejour'];
+if (!isset($_SESSION['date_debut_sejour']) && !isset($_SESSION['date_fin_sejour'])){
+	$_SESSION['date_debut_sejour']=$_POST['date_debut_sejour'];
+	$_SESSION['date_fin_sejour']=$_POST['date_fin_sejour'];
+}
 setlocale(LC_TIME, "fr_FR");
 ?>
 <!DOCTYPE html>
@@ -48,6 +50,7 @@ setlocale(LC_TIME, "fr_FR");
 
 						$table_nb_logements=[];
 						$table_type=['2 chambre a 2 lits', '1 chambre a 1 lit double','1 chambre a 3 lits','1 chambre a 4 lits','1 chambre mobilite reduite'];
+						$table_valeur=['2c2l','1c1ld','1c3l','1c4l','1cmr'];
 						
 						$pdoreq=affiche_nb_logements_libres_par_type($cnx, $_SESSION['date_debut_sejour'], $_SESSION['date_debut_sejour']);
 
@@ -60,7 +63,7 @@ setlocale(LC_TIME, "fr_FR");
 						}
 						
 						for ($i=0; $i < count($table_nb_logements); $i++) { 
-							echo "$table_type[$i] : <input type='number' name='$table_type[$i]' max='$table_nb_logements[$i]' min='0' placeholder='0' style=' width : 30px'>";
+							echo "$table_type[$i] : <input type='number' name='$table_valeur[$i]' max='$table_nb_logements[$i]' min='0' placeholder='0' style=' width : 30px'>";
 							if($i==2){
 								echo "<br>";
 							}else{
@@ -79,7 +82,7 @@ setlocale(LC_TIME, "fr_FR");
 			<?php
 				$_SESSION['champ_vide']=champ_vide($_SESSION['champ_vide']);
 			?>
-			<p id="PS"> Vous pourrez modifier les informatiosn liées à votre réservation de séjour après cette page</p>
+			<p id="PS"> Vous pourrez modifier les informations liées à votre réservation de séjour après cette page</p>
 		</form>
 	</main>
 	<footer>

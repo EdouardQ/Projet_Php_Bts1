@@ -1,16 +1,33 @@
 <?php
 session_start();
 include '..\functions.php';
-if ($_POST['2 chambre a 2 lits']!="" || $_POST['1 chambre a 1 lit double']!="" || $_POST['1 chambre a 3 lits']!="" || $_POST['1 chambre a 4 lits']!="" || $_POST['1 chambre mobilite reduite']!=""){
-	$_SESSION['2 chambre a 2 lits']=$_POST['2 chambre a 2 lits'];
-	$_SESSION['1 chambre a 1 lit double']=$_POST['1 chambre a 1 lit double'];
-	$_SESSION['1 chambre a 3 lits']=$_POST['1 chambre a 3 lits'];
-	$_SESSION['1 chambre a 4 lits']=$_POST['1 chambre a 4 lits'];
-	$_SESSION['1 chambre mobilite reduite']=$_POST['1 chambre mobilite reduite'];
-}else{
+$verif_champ_vide=1;
+
+if (!empty($_POST['2c2l'])){
+	$_SESSION['2c2l']=$_POST['2c2l'];
+	$verif_champ_vide=0;
+}
+if (!empty($_POST['1c1ld'])){
+	$_SESSION['1c1ld']=$_POST['1c1ld'];
+	$verif_champ_vide=0;
+}
+if (!empty($_POST['1c3l'])){
+	$_SESSION['1c3l']=$_POST['1c3l'];
+	$verif_champ_vide=0;
+}
+if (!empty($_POST['1c4l'])){
+	$_SESSION['1c4l']=$_POST['1c4l'];
+	$verif_champ_vide=0;
+}
+if (!empty($_POST['1cmr'])){
+	$_SESSION['1cmr']=$_POST['1cmr'];
+	$verif_champ_vide=0;
+}
+if ($verif_champ_vide==1){
 	$_SESSION['champ_vide']=1;
 	header('Location: ./Reservation_vac_3.php');
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +39,7 @@ if ($_POST['2 chambre a 2 lits']!="" || $_POST['1 chambre a 1 lit double']!="" |
 <body>
 	<header>
 		<?php
-		if (isset($_SESSION['id_user'])){
+		if (!empty($_SESSION['id_user'])){
 			echo "<div id='hello'>Bonjour ".$_SESSION['nom']." ".$_SESSION['prenom']." | <a href='.\deconnexion.php'>déconnexion</a></div>";
 		}
 		?>
