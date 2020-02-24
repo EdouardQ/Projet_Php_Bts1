@@ -18,7 +18,6 @@ function Connexion_user ($cnx, $email, $mdp){
 		$_SESSION['nom'] = $nom_pdo;
 		$_SESSION['prenom'] = $prenom_pdo;
 		header('Location: ./Accueil.php');
-		exit;
 	}else{
 		echo "Login incorrect";
 	}
@@ -279,6 +278,17 @@ function affiche_sejours ($cnx, $id_user){
 	$pdoreq=$cnx->query($sql);
 
 	return $pdoreq;
+}
+
+function suppr_reservation ($cnx, $id_user, $id_sejour){
+	$sql="DELETE FROM reservation_sejour WHERE id_user='$id_user' AND id_sejour='$id_sejour'"; 
+	$cnx->exec($sql);
+
+	$sql="DELETE FROM logement_attribue WHERE id_sejour='$id_sejour'";
+	$cnx->exec($sql);
+
+	$sql="DELETE FROM sejour WHERE id_sejour='$id_sejour'";
+	$cnx->exec($sql);
 }
 
 ?>

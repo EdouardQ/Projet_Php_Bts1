@@ -68,19 +68,25 @@ setlocale(LC_TIME, "fr_FR");
 						}
 					}
 
-					echo "</table>";
-
-
+					echo "</table><br>";
 				}
 				catch(PDOException $event) {
 					echo "Erreur : ".$event -> getMessage()."<br/>";
 					die();
 				}
-
-
 			?>
 		</div>
-
+		<form method="post" action="mes_infos_suppr.php">
+			<select name="suppr_reserv">
+				<option value="">--Sélectionner un numéro de réservation à supprimer définitivement--</option>
+				<?php
+				for ($i=0; $i < count($tab_historique); $i+=8) { 
+					echo "<option value='$tab_historique[$i]'>Num. $tab_historique[$i]</option>";
+				}
+				?>
+			</select>
+			<input type="submit" name="suppr" value="Supprimer">
+		</form>
 		</fieldset>
 </main>
 <footer>
