@@ -55,7 +55,6 @@ if (!empty($_POST['nb_personnes'])){
 				<legend><h3>Reservation professionnelle suite</h3></legend>
 				<div class="center">
 					<?php
-
 					echo "<h3>Veuillez choisir votre configuration des logements pour votre réservation <br>du ".utf8_encode(strftime("%A %d %B %G", strtotime($_SESSION['date_debut_sejour'])))." au ".utf8_encode(strftime("%A %d %B %G", strtotime($_SESSION['date_fin_sejour'])))." pour ".$_SESSION['nb_personnes']." personne(s)</h3>";
 					
 					try{

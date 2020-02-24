@@ -48,7 +48,7 @@ if ($_SESSION['logement_excessif']!=1){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Les Rousses - Reservation pro suite</title>
+	<title>Les Rousses - Reservation pro validation</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="./design.css" media="all">
 </head>
@@ -76,7 +76,7 @@ if ($_SESSION['logement_excessif']!=1){
 	<main>
 		<div class="info"><h3>Information :</h3>Le materiel audio et video pourra être demandé à <a href=".\Courage.php" target="blank" id="meme">l'accueil</a>.<br>Les reservations professionnelles ne sont pas disponible en période de vacances scolaires.</div>
 		<fieldset id="cadre">
-			<legend><h3>Reservation professionnelle suite</h3></legend>
+			<legend><h3>Validation reservation professionnelle</h3></legend>
 			<div class="center">
 			<?php
 				echo "<p><b>Date du début du séjour : </b>".utf8_encode(strftime('%A %d %B %G', strtotime($_SESSION['date_debut_sejour'])))."<span class='form'></span><b>Date de fin du séjour : </b>".utf8_encode(strftime('%A %d %B %G', strtotime($_SESSION['date_fin_sejour'])))."</p>";

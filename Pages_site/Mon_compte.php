@@ -5,7 +5,6 @@ if (isset($_SESSION['id_user'])){
 	header('Location: .\Mes_infos.php');
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>

@@ -48,7 +48,7 @@ if ($_SESSION['logement_excessif']!=1){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Les Rousses - Reservation_vac_suite</title>
+	<title>Les Rousses - Reservation vac validation</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="./design.css" media="all">
 </head>
