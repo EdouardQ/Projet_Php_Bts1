@@ -11,7 +11,7 @@ CREATE TABLE Reservation_sejour (id_user INT NOT NULL, id_sejour INT NOT NULL, d
 CREATE TABLE Reservation_materiel (id_user INT NOT NULL, id_materiel INT NOT NULL, date_debut_reservation_materiel DATE, date_fin_reservation_materiel DATE, PRIMARY KEY (id_user, id_materiel)) ENGINE=InnoDB;
 CREATE TABLE Reservation_salle (id_user INT NOT NULL, id_salle INT NOT NULL, date_debut_reservation_salle DATE, date_fin_reservation_salle DATE, PRIMARY KEY (id_user, id_salle)) ENGINE=InnoDB;
 CREATE TABLE Logement_attribue (id_sejour INT NOT NULL, id_logement INT NOT NULL, PRIMARY KEY (id_sejour,  id_logement)) ENGINE=InnoDB;
-CREATE TABLE Date_vacances (id_vacances INT AUTO_INCREMENT NOT NULL, nom VARCHAR(50), nb_semaine INT, date_debut DATE, date_fin DATE, PRIMARY KEY (id_vacances));
+CREATE TABLE Date_vacances (id_vacances INT AUTO_INCREMENT NOT NULL, nom VARCHAR(50), nb_semaine INT, date_debut DATE, date_fin DATE, PRIMARY KEY (id_vacances)) ENGINE=InnoDB;
 
 ALTER TABLE Paiment ADD CONSTRAINT FK_Paiment_id_user FOREIGN KEY (id_user) REFERENCES Utilisateur (id_user);
 ALTER TABLE Reservation_sejour ADD CONSTRAINT FK_Reservation_sejour_id_user FOREIGN KEY (id_user) REFERENCES Utilisateur (id_user);
