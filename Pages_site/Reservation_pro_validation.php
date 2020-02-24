@@ -48,7 +48,7 @@ if ($_SESSION['logement_excessif']!=1){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Les Rousses - Reservation_vac_suite</title>
+	<title>Les Rousses - Reservation pro suite</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="./design.css" media="all">
 </head>
@@ -67,38 +67,38 @@ if ($_SESSION['logement_excessif']!=1){
 			<li><a href=".\Accueil.php">Accueil</a></li>
 			<li>Reservation
 			<ul>
-				<li><a href=".\Reservation_vac.php">Vacances</a></li>
-				<li><a href=".\Reservation_pro.php">Professionelle</a></li>
+				<li><a href=".\reservation_vac.php">Vacances</a></li>
+				<li><a href=".\reservation_pro.php">Professionelle</a></li>
 				</ul></li>
 			<li><a href=".\Mon_compte.php">Mon compte</a></li>
 		</ul></nav>
 	</header>
 	<main>
-		<div><h3>Information :</h3>Les reservations se font du samedi au samedi pendant les vacances scolaires</div>
+		<div class="info"><h3>Information :</h3>Le materiel audio et video pourra être demandé à <a href=".\Courage.php" target="blank" id="meme">l'accueil</a>.<br>Les reservations professionnelles ne sont pas disponible en période de vacances scolaires.</div>
 		<fieldset id="cadre">
-			<legend><h3>Validation reservation de vacances</h3></legend>
-			<div class='center'>
-				<?php
-					echo "<p><b>Date du début du séjour : </b>".utf8_encode(strftime('%A %d %B %G', strtotime($_SESSION['date_debut_sejour'])))."<span class='form'></span><b>Date de fin du séjour : </b>".utf8_encode(strftime('%A %d %B %G', strtotime($_SESSION['date_fin_sejour'])))."</p>";
+			<legend><h3>Reservation professionnelle suite</h3></legend>
+			<div class="center">
+			<?php
+				echo "<p><b>Date du début du séjour : </b>".utf8_encode(strftime('%A %d %B %G', strtotime($_SESSION['date_debut_sejour'])))."<span class='form'></span><b>Date de fin du séjour : </b>".utf8_encode(strftime('%A %d %B %G', strtotime($_SESSION['date_fin_sejour'])))."</p>";
 
-					echo "<p>Pour ".$_SESSION['nb_adulte']." adulte(s) et ".$_SESSION['nb_enfant']." enfant(s) ";
+				echo "<p>Pour ".$_SESSION['nb_personnes']." personnes ";
 
-					if ($_SESSION['restauration']=="aucune") {
-						echo "sans pension, ";
-					}elseif ($_SESSION['restauration']=="demi_pension") {
-						echo "avec demi-pension, ";
-					}else{
-						echo "avec pension complète, ";
-					}
+				if ($_SESSION['restauration']=="aucune") {
+					echo "sans pension, ";
+				}elseif ($_SESSION['restauration']=="demi_pension") {
+					echo "avec demi-pension, ";
+				}else{
+					echo "avec pension complète, ";
+				}
 
-					echo "réparti(s) dans 	:<br><table id='tab_validation'><tr>";
+				echo "répartis dans 	:<br><table id='tab_validation'><tr>";
 
-					$table_type=['logement avec 2 chambre a 2 lits', 'logement avec 1 chambre a 1 lit double','logement avec 1 chambre a 3 lits','logement avec 1 chambre a 4 lits','logement avec 1 chambre mobilite reduite'];
-					for ($i=0; $i < count($table_type); $i++) { 
-						echo "<td>".$table_type[$i]."</td>";
-					}
-					echo "</tr><tr><td>".$_SESSION['2c2l']."</td><td>".$_SESSION['1c1ld']."</td><td>".$_SESSION['1c3l']."</td><td>".$_SESSION['1c4l']."</td><td>".$_SESSION['1cmr']."</td></tr></table>";
-				?>
+				$table_type=['logement avec 2 chambre a 2 lits', 'logement avec 1 chambre a 1 lit double','logement avec 1 chambre a 3 lits','logement avec 1 chambre a 4 lits','logement avec 1 chambre mobilite reduite'];
+				for ($i=0; $i < count($table_type); $i++) { 
+					echo "<td>".$table_type[$i]."</td>";
+				}
+				echo "</tr><tr><td>".$_SESSION['2c2l']."</td><td>".$_SESSION['1c1ld']."</td><td>".$_SESSION['1c3l']."</td><td>".$_SESSION['1c4l']."</td><td>".$_SESSION['1cmr']."</td></tr></table>";
+			?>
 			</div>
 		</fieldset>
 		<form method="post" action="reservation_end.php">

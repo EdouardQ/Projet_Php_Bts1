@@ -261,13 +261,13 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 	}
 }
 
-function verif_date_hors_vac ($cnx, $date_debut_sejour, $date_fin_sejour){
+function verif_date_hors_vac ($cnx, $date_debut, $date_fin){
 	$sql="SELECT count(id_vacances) from date_vacances WHERE id_vacances in (
-SELECT id_vacances from date_vacances where date_debut_sejour BETWEEN STR_TO_DATE('19,10,2019','%d,%m,%Y') AND STR_TO_DATE('28,5,2020','%d,%m,%Y'))
+SELECT id_vacances from date_vacances where date_debut BETWEEN '$date_debut' AND '$date_fin')
 or id_vacances in (
-SELECT id_vacances from date_vacances where date_fin_sejour BETWEEN STR_TO_DATE('21,5,2020','%d,%m,%Y') AND STR_TO_DATE('28,5,2020','%d,%m,%Y'))
+SELECT id_vacances from date_vacances where date_fin BETWEEN '$date_debut' AND '$date_fin')
 or id_vacances in (
-SELECT id_vacances from date_vacances where date_debut_sejour < STR_TO_DATE('19,10,2019','%d,%m,%Y') AND date_fin_sejour > STR_TO_DATE('25,5,2020','%d,%m,%Y'))";
+SELECT id_vacances from date_vacances where date_debut < '$date_debut' AND date_fin > '$date_fin')";
 
 	$pdoreq=$cnx->query($sql);
 
