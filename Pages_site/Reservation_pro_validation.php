@@ -95,7 +95,7 @@ if ($_SESSION['logement_excessif']!=1){
 
 				$table_type=['logement avec 2 chambre a 2 lits', 'logement avec 1 chambre a 1 lit double','logement avec 1 chambre a 3 lits','logement avec 1 chambre a 4 lits','logement avec 1 chambre mobilite reduite'];
 				for ($i=0; $i < count($table_type); $i++) { 
-					echo "<td>".$table_type[$i]."</td>";
+					echo "<td><b>".$table_type[$i]."</b></td>";
 				}
 				echo "</tr><tr><td>".$_SESSION['2c2l']."</td><td>".$_SESSION['1c1ld']."</td><td>".$_SESSION['1c3l']."</td><td>".$_SESSION['1c4l']."</td><td>".$_SESSION['1cmr']."</td></tr></table>";
 			?>

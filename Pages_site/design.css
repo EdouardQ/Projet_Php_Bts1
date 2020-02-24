@@ -207,3 +207,8 @@ footer p, #PS{
 	font-size: 2em;
 	text-align: center;
 }
+
+#mes_infos{
+	border-style: double;
+	border-color: #FDA12F;
+}
