@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '..\functions.php';
+include '.\functions.php';
 if (!isset($_SESSION['id_user'])){
 		header('Location: .\Mon_compte.php');
 }

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '..\functions.php';
+include '.\functions.php';
 $verif_champ_vide=1;
 setlocale(LC_TIME, "fr_FR");
 

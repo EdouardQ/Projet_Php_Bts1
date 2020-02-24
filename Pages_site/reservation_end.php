@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '..\functions.php';
+include '.\functions.php';
 
 if (isset($_POST['modifier'])) {
 	unset($_SESSION['nb_adulte']);

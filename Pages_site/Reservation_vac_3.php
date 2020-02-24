@@ -1,7 +1,7 @@
 <?php
 session_start();
 setlocale(LC_TIME, "fr_FR");
-include '..\functions.php';
+include '.\functions.php';
 if ($_SESSION['champ_vide']==1 || $_SESSION['logement_excessif']!=1) {
 }
 elseif (isset($_POST['date_debut_sejour']) && isset($_POST['date_fin_sejour']) && strtotime($_POST['date_debut_sejour']) < strtotime($_POST['date_fin_sejour'])){

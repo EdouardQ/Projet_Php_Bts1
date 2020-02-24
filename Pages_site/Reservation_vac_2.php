@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '..\functions.php';
+include '.\functions.php';
 if ($_SESSION['erreur_date']==1) {
 }elseif ($_POST['nb_adulte']!="" && $_POST['nb_enfant']!=""){
 	$_SESSION['nb_adulte']=$_POST['nb_adulte'];

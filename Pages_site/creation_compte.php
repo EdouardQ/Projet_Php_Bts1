@@ -5,7 +5,7 @@ $_SESSION['password_db']='';
 $_SESSION['servername']='127.0.0.1';
 $_SESSION['dbname']='station_les_rousses';
 
-include '..\functions.php';
+include '.\functions.php';
 
 if ($_POST['nom']!="" && $_POST['prenom']!="" && $_POST['email']!="" && $_POST['mdp']!="" && $_POST['telephone']!="" && $_POST['entreprise']!=""){
 	$email=$_POST['email'];

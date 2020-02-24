@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '..\functions.php';
+include '.\functions.php';
 setlocale(LC_TIME, "fr_FR");
 
 if (!empty($_POST['nb_personnes'])){

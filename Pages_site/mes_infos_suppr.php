@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '..\functions.php';
+include '.\functions.php';
 
 if ($_POST['suppr_reserv']!="") {
 	try{
