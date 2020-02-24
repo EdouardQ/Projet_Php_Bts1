@@ -4,6 +4,7 @@ function Connection ($servername,$user, $password, $dbname){
  	$cnx->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
  	return $cnx;
  }
+
 function Connexion_user ($cnx, $email, $mdp){
 	$sql="SELECT id_user, nom, prenom FROM utilisateur WHERE email='$email' and mdp=sha1('$mdp')";
  	$pdoreq=$cnx->query($sql);
@@ -165,6 +166,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 			SELECT reservation_sejour.id_sejour FROM reservation_sejour WHERE reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour')))";
 
 			$pdoreq=$cnx->query($sql);
+
 			foreach ($pdoreq as $value) {
 				$id_logement=$value[0];
 			}
@@ -173,6 +175,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 			$cnx->exec($sql);
 		}
 	}
+
 	if ($nb_1c1ld>0) {
 		for ($i=0; $i < $nb_1c1ld; $i++) { 
 			$sql="SELECT MIN(logement.id_logement) FROM logement WHERE type='1 chambre a 1 lit double' and logement.id_logement IN (SELECT logement.id_logement FROM logement WHERE logement.id_logement not IN (
@@ -186,6 +189,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 			SELECT reservation_sejour.id_sejour FROM reservation_sejour WHERE reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour')))";
 
 			$pdoreq=$cnx->query($sql);
+
 			foreach ($pdoreq as $value) {
 				$id_logement=$value[0];
 			}
@@ -194,6 +198,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 			$cnx->exec($sql);
 		}
 	}
+
 	if ($nb_1c3l>0) {
 		for ($i=0; $i < $nb_1c3l; $i++) { 
 			$sql="SELECT MIN(logement.id_logement) FROM logement WHERE type='1 chambre a 3 lits' and logement.id_logement IN (SELECT logement.id_logement FROM logement WHERE logement.id_logement not IN (
@@ -207,6 +212,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 			SELECT reservation_sejour.id_sejour FROM reservation_sejour WHERE reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour')))";
 
 			$pdoreq=$cnx->query($sql);
+
 			foreach ($pdoreq as $value) {
 				$id_logement=$value[0];
 			}
@@ -215,6 +221,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 			$cnx->exec($sql);
 		}
 	}
+
 	if ($nb_1c4l>0) {
 		for ($i=0; $i < $nb_1c4l; $i++) { 
 			$sql="SELECT MIN(logement.id_logement) FROM logement WHERE type='1 chambre a 4 lits' and logement.id_logement IN (SELECT logement.id_logement FROM logement WHERE logement.id_logement not IN (
@@ -228,6 +235,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 			SELECT reservation_sejour.id_sejour FROM reservation_sejour WHERE reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour')))";
 
 			$pdoreq=$cnx->query($sql);
+
 			foreach ($pdoreq as $value) {
 				$id_logement=$value[0];
 			}
@@ -236,6 +244,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 			$cnx->exec($sql);
 		}
 	}
+
 	if ($nb_1cmr>0) {
 		for ($i=0; $i < $nb_1cmr; $i++) { 
 			$sql="SELECT MIN(logement.id_logement) FROM logement WHERE type='1 chambre pour personne a mobilite reduite
@@ -250,6 +259,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 			SELECT reservation_sejour.id_sejour FROM reservation_sejour WHERE reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour')))";
 
 			$pdoreq=$cnx->query($sql);
+
 			foreach ($pdoreq as $value) {
 				$id_logement=$value[0];
 			}
@@ -269,14 +279,13 @@ or id_vacances IN (
 SELECT id_vacances FROM date_vacances WHERE date_debut < '$date_debut' AND date_fin > '$date_fin')";
 
 	$pdoreq=$cnx->query($sql);
-
 	return $pdoreq;
 }
 
 function affiche_sejours ($cnx, $id_user){
 	$sql="SELECT sejour.id_sejour, reservation_sejour.date_debut_sejour, reservation_sejour.date_fin_sejour, sejour.nb_logement, sejour.nb_adulte, sejour.nb_enfant, sejour.nb_pension, sejour.nb_demi_pension FROM sejour INNER JOIN reservation_sejour ON reservation_sejour.id_sejour=sejour.id_sejour WHERE  reservation_sejour.id_user='$id_user'";
-	$pdoreq=$cnx->query($sql);
 
+	$pdoreq=$cnx->query($sql);
 	return $pdoreq;
 }
 
@@ -290,5 +299,4 @@ function suppr_reservation ($cnx, $id_user, $id_sejour){
 	$sql="DELETE FROM sejour WHERE id_sejour='$id_sejour'";
 	$cnx->exec($sql);
 }
-
 ?>
