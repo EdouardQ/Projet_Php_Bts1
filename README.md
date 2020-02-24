@@ -10,7 +10,8 @@
 ### Pour créer la base de donnée utilisée par le site, copier le fichier "les_rousses.sql" dans la console MySQL puis exécuter le script "insert_into_data.php".
 
 
-![](./Conception dbase/MCD.png)
+![](MCD.png)
 
-![](./Conception dbase/MPD.png)
+
+![](MPD.png)
 
