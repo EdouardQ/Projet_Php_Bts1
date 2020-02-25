@@ -2,6 +2,8 @@
 session_start();
 $_SESSION['champ_vide']=0;
 $_SESSION['erreur_date']=0;
+$_SESSION['mdp_diff']=0;
+$_SESSION['email_existant']=0;
 ?>
 <!DOCTYPE html>
 <html>

@@ -72,6 +72,14 @@ function erreur_date($bool_erreur_date){
 		return $bool_erreur_date;
 }
 
+function verif_mdp ($bool_mdp_diff){
+	if ($bool_mdp_diff==1){
+			echo "<p id='erreur_form'>Mots de passe différents</p>";
+		}
+		$bool_mdp_diff=0;
+		return $bool_mdp_diff;
+}
+
 function creer_compte($cnx, $nom, $prenom, $email, $mdp, $telephone, $entreprise){
 	$sql="INSERT INTO utilisateur (nom, prenom, email, mdp, telephone, entreprise) VALUES ('$nom', '$prenom', '$email', sha1('$mdp'), '$telephone', '$entreprise')";
 	$cnx->exec($sql);
