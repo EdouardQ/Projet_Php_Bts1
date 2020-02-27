@@ -4,6 +4,7 @@ $_SESSION['champ_vide']=0;
 $_SESSION['erreur_date']=0;
 $_SESSION['mdp_diff']=0;
 $_SESSION['email_existant']=0;
+$_SESSION['logement_excessif']=1
 ?>
 <!DOCTYPE html>
 <html>
