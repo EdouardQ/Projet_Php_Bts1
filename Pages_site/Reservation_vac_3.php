@@ -57,11 +57,12 @@ elseif (isset($_POST['date_debut_sejour']) && isset($_POST['date_fin_sejour']) &
 						$table_type=['2 chambre a 2 lits', '1 chambre a 1 lit double','1 chambre a 3 lits','1 chambre a 4 lits','1 chambre mobilite reduite'];
 						$table_valeur=['2c2l','1c1ld','1c3l','1c4l','1cmr'];
 						
-						$pdoreq=affiche_nb_logements_libres_par_type($cnx, $_SESSION['date_debut_sejour'], $_SESSION['date_debut_sejour']);
+						$pdoreq=affiche_nb_logements_libres_par_type($cnx, $_SESSION['date_debut_sejour'], $_SESSION['date_fin_sejour']);
 
 						foreach ($pdoreq as $value) {
 							$pdoreq_temp[]=$value[1];
 						}
+
 						$table_nb_logements=array_count_values($pdoreq_temp);
 
 						$i=0;

@@ -99,13 +99,7 @@ function affiche_date_vacances($cnx, $vacances){
 
 function affiche_nb_logements_libres_par_type($cnx, $date_debut, $date_fin){
 
-	$sql="CREATE TEMPORARY TABLE logements_libres_temp (id_logement INT PRIMARY KEY, type VARCHAR(50))";
-	$cnx->exec($sql);
-	$sql="
-INSERT INTO logements_libres_temp
-SELECT logement.id_logement, logement.type FROM logement INNER JOIN logement_attribue ON logement.id_logement!=logement_attribue.id_logement INNER JOIN reservation_sejour ON logement_attribue.id_sejour=reservation_sejour.id_sejour WHERE (reservation_sejour.date_debut_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_fin_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_debut_sejour < '$date_debut' AND reservation_sejour.date_fin_sejour > '$date_fin')";
-	$cnx->exec($sql);
-	$sql="SELECT * FROM logements_libres_temp";
+	$sql="SELECT logement.id_logement, logement.type FROM logement WHERE logement.id_logement NOT IN (SELECT logement_attribue.id_logement FROM logement_attribue INNER JOIN reservation_sejour ON logement_attribue.id_sejour=reservation_sejour.id_sejour WHERE (reservation_sejour.date_debut_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_fin_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_debut_sejour < '$date_debut' AND reservation_sejour.date_fin_sejour > '$date_fin'))";
 
 	$pdoreq=$cnx->query($sql);
 
@@ -155,7 +149,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 
 	if ($nb_2c2l>0) {
 		for ($i=0; $i < $nb_2c2l; $i++) { 
-			$sql="SELECT MIN(logement.id_logement) FROM logement INNER JOIN logement_attribue ON logement.id_logement!=logement_attribue.id_logement INNER JOIN reservation_sejour ON logement_attribue.id_sejour=reservation_sejour.id_sejour WHERE (reservation_sejour.date_debut_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_fin_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_debut_sejour < '$date_debut' AND reservation_sejour.date_fin_sejour > '$date_fin') AND logement.type ='2 chambres a 2 lits'";
+			$sql="SELECT MIN(logement.id_logement) FROM logement WHERE logement.id_logement NOT IN (SELECT logement_attribue.id_logement FROM logement_attribue INNER JOIN reservation_sejour ON logement_attribue.id_sejour=reservation_sejour.id_sejour WHERE (reservation_sejour.date_debut_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour') OR (reservation_sejour.date_fin_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour') OR (reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour') AND logement.type ='2 chambres a 2 lits')";
 
 			$pdoreq=$cnx->query($sql);
 
@@ -170,7 +164,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 
 	if ($nb_1c1ld>0) {
 		for ($i=0; $i < $nb_1c1ld; $i++) { 
-			$sql="SELECT MIN(logement.id_logement) FROM logement INNER JOIN logement_attribue ON logement.id_logement!=logement_attribue.id_logement INNER JOIN reservation_sejour ON logement_attribue.id_sejour=reservation_sejour.id_sejour WHERE (reservation_sejour.date_debut_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_fin_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_debut_sejour < '$date_debut' AND reservation_sejour.date_fin_sejour > '$date_fin') AND logement.type ='1 chambre a 1 lit double'";
+			$sql="SELECT MIN(logement.id_logement) FROM logement WHERE logement.id_logement NOT IN (SELECT logement_attribue.id_logement FROM logement_attribue INNER JOIN reservation_sejour ON logement_attribue.id_sejour=reservation_sejour.id_sejour WHERE (reservation_sejour.date_debut_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour') OR (reservation_sejour.date_fin_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour') OR (reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour') AND logement.type ='1 chambre a 1 lit double')";
 
 			$pdoreq=$cnx->query($sql);
 
@@ -185,7 +179,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 
 	if ($nb_1c3l>0) {
 		for ($i=0; $i < $nb_1c3l; $i++) { 
-			$sql="SELECT MIN(logement.id_logement) FROM logement INNER JOIN logement_attribue ON logement.id_logement!=logement_attribue.id_logement INNER JOIN reservation_sejour ON logement_attribue.id_sejour=reservation_sejour.id_sejour WHERE (reservation_sejour.date_debut_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_fin_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_debut_sejour < '$date_debut' AND reservation_sejour.date_fin_sejour > '$date_fin') AND logement.type ='1 chambre a 3 lits'";
+			$sql="SELECT MIN(logement.id_logement) FROM logement WHERE logement.id_logement NOT IN (SELECT logement_attribue.id_logement FROM logement_attribue INNER JOIN reservation_sejour ON logement_attribue.id_sejour=reservation_sejour.id_sejour WHERE (reservation_sejour.date_debut_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour') OR (reservation_sejour.date_fin_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour') OR (reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour') AND logement.type ='1 chambre a 3 lits')";
 
 
 			$pdoreq=$cnx->query($sql);
@@ -201,7 +195,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 
 	if ($nb_1c4l>0) {
 		for ($i=0; $i < $nb_1c4l; $i++) { 
-			$sql="SELECT MIN(logement.id_logement) FROM logement INNER JOIN logement_attribue ON logement.id_logement!=logement_attribue.id_logement INNER JOIN reservation_sejour ON logement_attribue.id_sejour=reservation_sejour.id_sejour WHERE (reservation_sejour.date_debut_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_fin_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_debut_sejour < '$date_debut' AND reservation_sejour.date_fin_sejour > '$date_fin') AND logement.type ='1 chambre a 4 lits'";
+			$sql="SELECT MIN(logement.id_logement) FROM logement WHERE logement.id_logement NOT IN (SELECT logement_attribue.id_logement FROM logement_attribue INNER JOIN reservation_sejour ON logement_attribue.id_sejour=reservation_sejour.id_sejour WHERE (reservation_sejour.date_debut_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour') OR (reservation_sejour.date_fin_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour') OR (reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour') AND logement.type ='1 chambre a 4 lits')";
 
 
 			$pdoreq=$cnx->query($sql);
@@ -217,8 +211,7 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 
 	if ($nb_1cmr>0) {
 		for ($i=0; $i < $nb_1cmr; $i++) { 
-			$sql="SELECT MIN(logement.id_logement) FROM logement INNER JOIN logement_attribue ON logement.id_logement!=logement_attribue.id_logement INNER JOIN reservation_sejour ON logement_attribue.id_sejour=reservation_sejour.id_sejour WHERE (reservation_sejour.date_debut_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_fin_sejour BETWEEN '$date_debut' AND '$date_fin') OR (reservation_sejour.date_debut_sejour < '$date_debut' AND reservation_sejour.date_fin_sejour > '$date_fin') AND logement.type ='1 chambre pour personne a mobilite reduite
-'";
+			$sql="SELECT MIN(logement.id_logement) FROM logement WHERE logement.id_logement NOT IN (SELECT logement_attribue.id_logement FROM logement_attribue INNER JOIN reservation_sejour ON logement_attribue.id_sejour=reservation_sejour.id_sejour WHERE (reservation_sejour.date_debut_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour') OR (reservation_sejour.date_fin_sejour BETWEEN '$date_debut_sejour' AND '$date_fin_sejour') OR (reservation_sejour.date_debut_sejour < '$date_debut_sejour' AND reservation_sejour.date_fin_sejour > '$date_fin_sejour') AND logement.type ='1 chambre pour personne a mobilite reduite')";
 
 
 			$pdoreq=$cnx->query($sql);
@@ -231,18 +224,6 @@ function validation_reserv($cnx, $id_user, $nb_adulte, $nb_enfant, $nb_personnes
 			$cnx->exec($sql);
 		}
 	}
-}
-
-function verif_date_hors_vac ($cnx, $date_debut, $date_fin){
-	$sql="SELECT count(id_vacances) FROM date_vacances WHERE id_vacances IN (
-SELECT id_vacances FROM date_vacances WHERE date_debut BETWEEN '$date_debut' AND '$date_fin')
-or id_vacances IN (
-SELECT id_vacances FROM date_vacances WHERE date_fin BETWEEN '$date_debut' AND '$date_fin')
-or id_vacances IN (
-SELECT id_vacances FROM date_vacances WHERE date_debut < '$date_debut' AND date_fin > '$date_fin')";
-
-	$pdoreq=$cnx->query($sql);
-	return $pdoreq;
 }
 
 function affiche_sejours ($cnx, $id_user){
